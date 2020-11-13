@@ -157,6 +157,12 @@ body {
     margin-left: 30px;
 }
 
+#graph #barspace p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
 #graph #bar {
     border-radius: 17px;
 }

@@ -1,0 +1,57 @@
+{
+    "Stat1": {
+        "Name": "test",
+
+        "lowThresh": 3,
+        "fairLowThresh": 4,
+        "fairHighThresh": 6,
+        "highThresh": 7,
+
+        "LowMsg": "This stat is too low",
+        "FairMsg": "The stat is okay right now",
+        "GoodMsg": "The stat is nearly perfect",
+        "HighMsg": "This stat is too high"
+    },
+
+    "Stat2": {
+        "Name": "test",
+
+        "lowThresh": 3,
+        "fairLowThresh": 4,
+        "fairHighThresh": 6,
+        "highThresh": 7,
+
+        "LowMsg": "This stat is too low",
+        "FairMsg": "The stat is okay right now",
+        "GoodMsg": "The stat is nearly perfect",
+        "HighMsg": "This stat is too high"
+    },
+
+    "Stat3": {
+        "Name": "test",
+
+        "lowThresh": 3,
+        "fairLowThresh": 4,
+        "fairHighThresh": 6,
+        "highThresh": 7,
+
+        "LowMsg": "This stat is too low",
+        "FairMsg": "The stat is okay right now",
+        "GoodMsg": "The stat is nearly perfect",
+        "HighMsg": "This stat is too high"
+    },
+
+    "Stat4": {
+        "Name": "test",
+
+        "lowThresh": 3,
+        "fairLowThresh": 4,
+        "fairHighThresh": 6,
+        "highThresh": 7,
+
+        "LowMsg": "This stat is too low",
+        "FairMsg": "The stat is okay right now",
+        "GoodMsg": "The stat is nearly perfect",
+        "HighMsg": "This stat is too high"
+    }
+}

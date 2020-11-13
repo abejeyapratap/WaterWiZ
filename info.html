@@ -5,6 +5,7 @@
         <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <link href="styles.css" rel="stylesheet" type="text/css" />
         <script src="main.js" type="text/javascript"></script>
+        <script src="info.js" type="text/javascript"></script>
 
         <script>
             $(document).ready(function(){
@@ -50,7 +51,7 @@
             <div style="width: 50%; float: left">
                 <p id=infoHeader>Water Status</p>
                 <p id=infoSubheader>Fair - Safe to drink</p>
-                <p id=regtext>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                <p id=regtext class="infoText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
             </div>
             <div style="width: 50%; float: right;">
                 <p id=graphHeader>Water Statistics</p>
@@ -61,19 +62,23 @@
                         </div>
                         <div id=barspace>
                             <div id=bar style="height: 170;"></div>
-                            <div id=bar style="height: 200; background-color: orange;"><a href="#1" onclick="" id=bar style="height: 198;"></a></div>
+                            <div id=bar style="height: 200; background-color: orange;"><a href="#1" onclick="fillStat(0)" id=bar style="height: 198;"></a></div>
+                            <p>Stat #1</p>
                         </div>
                         <div id=barspace>
                             <div id=bar style="height: 10;"></div>
                             <div id=bar style="height: 360; background-color: yellow;"><a href="#2" id=bar style="height: 358;"></a></div>
+                            <p>Stat #2</p>
                         </div>
                         <div id=barspace>
                             <div id=bar style="height: 270;"></div>
                             <div id=bar style="height: 100; background-color: cyan;"><a href="#3" id=bar style="height: 98;"></a></div>
+                            <p>Stat #3</p>
                         </div>
                         <div id=barspace>
                             <div id=bar style="height: 120;"></div>
-                            <div id=bar style="height: 250; background-color: mediumslateblue;"><a href="#4" id=bar style="height: 248;"></a></div>
+                            <div id=bar style="height: 250; background-color: magenta;"><a href="#4" id=bar style="height: 248;"></a></div>
+                            <p>Stat #4</p>
                         </div>
                         <div style="position: absolute; margin-top: 150px; height: 2px; width: 40%; background-color: gray;"></div>
                         <div style="position: absolute; margin-top: 216px; height: 2px; width: 40%; background-color: gray;"></div>
