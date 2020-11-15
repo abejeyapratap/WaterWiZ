@@ -13,7 +13,7 @@
            });
         </script>
     </head>
-    <body>
+    <body onload="pageLoaded()">
         <div id="navbar">
             <div id="navlogoc">
                 <a href="index.html">
@@ -21,11 +21,11 @@
                 </a>
             </div>
             <div id="navc">
-                <a href="info.html#American">American Water
+                <a href="info.html#AmericanWater">American Water
                 </a>
             </div>
             <div id="navc">
-                <a href="info.html#Montgomery">Montgomery County
+                <a href="info.html#AquaAmerica">Aqua America
                 </a>
             </div>
             <div id="navc">
@@ -45,7 +45,7 @@
 
         <div style="height: 10px; background-color: black"></div>
 
-        <center><p id=subtitle>American Water</p></center>
+        <center><p id=infoCounties class="countiesList">American Water</p></center>
         <!--h2><script>test();</script></h2-->
         <div style="height: 100%;">
             <div style="width: 50%; float: left">
@@ -61,24 +61,24 @@
                             <p>Safe Zone</p>
                         </div>
                         <div id=barspace>
-                            <div id=bar style="height: 170;"></div>
-                            <div id=bar style="height: 200; background-color: orange;"><a href="#1" onclick="fillStat(0)" id=bar style="height: 198;"></a></div>
-                            <p>Stat #1</p>
+                            <div class=bar style="height: 170;"></div>
+                            <div class=bar style="height: 200; background-color: orange;"><a href="#1" onclick="fillStat(0)" class=bar style="height: 198;"></a></div>
+                            <p class="barTitle">Stat #1</p>
                         </div>
                         <div id=barspace>
-                            <div id=bar style="height: 10;"></div>
-                            <div id=bar style="height: 360; background-color: yellow;"><a href="#2" id=bar style="height: 358;"></a></div>
-                            <p>Stat #2</p>
+                            <div class=bar style="height: 10;"></div>
+                            <div class=bar style="height: 360; background-color: yellow;"><a href="#2" onclick="fillStat(1)" class=bar style="height: 358;"></a></div>
+                            <p class="barTitle">Stat #2</p>
                         </div>
                         <div id=barspace>
-                            <div id=bar style="height: 270;"></div>
-                            <div id=bar style="height: 100; background-color: cyan;"><a href="#3" id=bar style="height: 98;"></a></div>
-                            <p>Stat #3</p>
+                            <div class=bar style="height: 270;"></div>
+                            <div class=bar style="height: 100; background-color: cyan;"><a href="#3" onclick="fillStat(2)" class=bar style="height: 98;"></a></div>
+                            <p class="barTitle">Stat #3</p>
                         </div>
                         <div id=barspace>
-                            <div id=bar style="height: 120;"></div>
-                            <div id=bar style="height: 250; background-color: magenta;"><a href="#4" id=bar style="height: 248;"></a></div>
-                            <p>Stat #4</p>
+                            <div class=bar style="height: 120;"></div>
+                            <div class=bar style="height: 250; background-color: magenta;"><a href="#4" onclick="fillStat(3)" class=bar style="height: 248;"></a></div>
+                            <p class="barTitle">Stat #4</p>
                         </div>
                         <div style="position: absolute; margin-top: 150px; height: 2px; width: 40%; background-color: gray;"></div>
                         <div style="position: absolute; margin-top: 216px; height: 2px; width: 40%; background-color: gray;"></div>

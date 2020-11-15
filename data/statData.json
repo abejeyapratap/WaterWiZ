@@ -1,9 +1,42 @@
 {
-    "AmericanWater": {
-        "name": "American Water",
-        "stat1": 4,
-        "stat2": 5,
-        "stat3": 6,
-        "stat4": 7
-    }
+    "suppliers": [
+        {
+            "id": "AmericanWater",
+            "name": "American Water",
+            "counties": "Philadelphia County, County 2, County 3, County 4, County 5",
+            "waterStatus": "Good - Safe to drink",
+            "description": "yayyy water!",
+            "stats": [
+                3,
+                5,
+                5,
+                7
+            ],
+            "units": [
+                "ph",
+                "ml",
+                "ppm",
+                "m^2"
+            ]
+        },
+        {
+            "id": "AquaAmerica",
+            "name": "Aqua America",
+            "counties": "Philadelphia County, County 6, County 7, County 8, County 9",
+            "waterStatus": "Fair - Safe to drink",
+            "description": "This supplier tests their water daily and its very reliable for clean water.",
+            "stats": [
+                6,
+                5,
+                5,
+                4
+            ],
+            "units": [
+                "ph",
+                "ml",
+                "ppm",
+                "m^2"
+            ]
+        }
+    ]
 }

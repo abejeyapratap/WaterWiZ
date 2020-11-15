@@ -1,57 +1,63 @@
 {
-    "Stat1": {
-        "Name": "test",
+    "stats": [
+        {
+            "name": "stat1",
+            "color": "orange",
 
-        "lowThresh": 3,
-        "fairLowThresh": 4,
-        "fairHighThresh": 6,
-        "highThresh": 7,
+            "lowThresh": 3,
+            "fairLowThresh": 4,
+            "fairHighThresh": 6,
+            "highThresh": 7,
 
-        "LowMsg": "This stat is too low",
-        "FairMsg": "The stat is okay right now",
-        "GoodMsg": "The stat is nearly perfect",
-        "HighMsg": "This stat is too high"
-    },
+            "LowMsg": "This stat is too low",
+            "FairMsg": "The stat is okay right now",
+            "GoodMsg": "The stat is nearly perfect",
+            "HighMsg": "This stat is too high"
+        },
 
-    "Stat2": {
-        "Name": "test",
+        {
+            "name": "stat2",
+            "color": "yellow",
 
-        "lowThresh": 3,
-        "fairLowThresh": 4,
-        "fairHighThresh": 6,
-        "highThresh": 7,
+            "lowThresh": 2,
+            "fairLowThresh": 4,
+            "fairHighThresh": 6,
+            "highThresh": 7,
 
-        "LowMsg": "This stat is too low",
-        "FairMsg": "The stat is okay right now",
-        "GoodMsg": "The stat is nearly perfect",
-        "HighMsg": "This stat is too high"
-    },
+            "LowMsg": "This stat is too low",
+            "FairMsg": "The stat is okay right now",
+            "GoodMsg": "The stat is nearly perfect",
+            "HighMsg": "This stat is too high"
+        },
 
-    "Stat3": {
-        "Name": "test",
+        {
+            "name": "stat3",
+            "color": "cyan",
 
-        "lowThresh": 3,
-        "fairLowThresh": 4,
-        "fairHighThresh": 6,
-        "highThresh": 7,
+            "lowThresh": 3,
+            "fairLowThresh": 4,
+            "fairHighThresh": 6,
+            "highThresh": 7,
 
-        "LowMsg": "This stat is too low",
-        "FairMsg": "The stat is okay right now",
-        "GoodMsg": "The stat is nearly perfect",
-        "HighMsg": "This stat is too high"
-    },
+            "LowMsg": "This stat is too low",
+            "FairMsg": "The stat is okay right now",
+            "GoodMsg": "The stat is nearly perfect",
+            "HighMsg": "This stat is too high"
+        },
 
-    "Stat4": {
-        "Name": "test",
+        {
+            "name": "stat4",
+            "color": "magenta",
 
-        "lowThresh": 3,
-        "fairLowThresh": 4,
-        "fairHighThresh": 6,
-        "highThresh": 7,
+            "lowThresh": 3,
+            "fairLowThresh": 4,
+            "fairHighThresh": 6,
+            "highThresh": 7,
 
-        "LowMsg": "This stat is too low",
-        "FairMsg": "The stat is okay right now",
-        "GoodMsg": "The stat is nearly perfect",
-        "HighMsg": "This stat is too high"
-    }
+            "LowMsg": "This stat is too low",
+            "FairMsg": "The stat is okay right now",
+            "GoodMsg": "The stat is nearly perfect",
+            "HighMsg": "This stat is too high"
+        }
+    ]
 }

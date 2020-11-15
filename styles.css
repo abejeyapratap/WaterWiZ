@@ -94,6 +94,11 @@ body {
     margin-top: 30px;
 }
 
+.countiesList {
+    font-size: 40px;
+    margin-top: 30px;
+}
+
 #infoHeader {
     font-size: 40px;
     margin-top: 0px;
@@ -163,15 +168,15 @@ body {
     text-align: center;
 }
 
-#graph #bar {
+#graph .bar {
     border-radius: 17px;
 }
 
-#graph #bar a {
+#graph .bar a {
     display: block;
 }
 
-div #bar :hover {
+div .bar :hover {
     border: 2px solid #000000;
 }
 
