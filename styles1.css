@@ -53,6 +53,15 @@ body {
     width: 180px; 
 }
 
+.navtitle {
+    margin: 9px 9px 9px 30px;
+    color: #126597;
+}
+
+.navtitle span {
+    color: rgb(0, 0, 0);
+}
+
 #navlogo {
     margin: 0px;
     padding: 0px;
