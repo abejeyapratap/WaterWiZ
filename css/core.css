@@ -1,0 +1,103 @@
+/** Bootstrapping **/
+
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+
+    --nav-background: #8c928d;
+}
+
+body, h1, h2, h3, h4, h5, h6, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Navbar
+ */
+
+nav {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+nav#main-nav {
+    background-color: var(--nav-background);
+}
+
+nav > .nav-group {
+    display: flex;
+    flex-flow: row;
+}
+
+nav > .nav-group:first-child {
+    padding-left: 40px;
+}
+
+nav > .nav-group:last-child {
+    padding-right: 40px;
+}
+
+nav > ul.nav-group {
+    list-style: none;
+}
+
+nav > ul.nav-group > li {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/** Expand nav-group-grow **/
+nav > .nav-group.nav-group-grow {
+    flex: 1;
+}
+
+/** Nav spacing **/
+nav .nav-btn {
+    padding: 20px 20px;
+}
+
+/** Darken button on hover, show pointer **/
+nav .nav-btn:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+nav .nav-btn a, nav a.nav-btn {
+    color: initial;
+    text-decoration: none;
+}
+
+/*
+ * Main Navbar implementation
+ */
+
+nav#main-nav {
+    border-bottom: 1px solid black;
+}
+
+nav > .nav-group > #nav-logo > a {
+    display: inline-block;
+}
+
+nav > .nav-group > li > h1.nav-brand {
+    margin-left: 10px;
+}
+
+nav > .nav-group > li > h1.nav-brand > span.nav-brand-special {
+    color: #126597;
+}
+
+/*
+ * Footer
+ */
+
+body > footer#main-footer {
+    display: flex;
+    flex-flow: row;
+    padding: 20px 30px;
+    background-color: var(--nav-background);
+    color: white;
+}

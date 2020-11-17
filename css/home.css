@@ -1,0 +1,70 @@
+/*
+ * Jumbotron
+ */
+
+.landing-container {
+    height: calc(50vh - 59px);
+    width: 100vw;
+
+    background-image: url('/img/Ocean.jpg');
+
+    display: flex;
+    flex-flow: row;
+    
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    border-bottom: 1px solid black;
+}
+
+.landing-container > .landing-backdrop {
+    backdrop-filter: blur(10px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.landing-container > .landing-cta {
+    font-size: 4em;
+    font-weight: 400;
+    z-index: 1;
+}
+
+/*
+ * Main content
+ */
+
+#home-content {
+    display: flex;
+    flex-flow: column;
+    
+    padding: 20px 40px;
+    max-width: min(1000px, calc(100vw - 300px));
+    min-height: 50vh;
+
+    margin: 0 auto;
+}
+
+#home-content > header {
+    text-align: center;
+    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+#home-content > header > h1.home-title {
+    --home-font-size: 2em;
+
+    font-size: var(--home-font-size);
+    line-height: var(--home-font-size);
+
+    font-weight: 500;
+}

@@ -2,9 +2,10 @@
     <head>
         <title>Water Wiz</title>
 
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <link href="styles1.css" rel="stylesheet" type="text/css" />
-        <script src="main.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js" integrity="sha512-h9kKZlwV1xrIcr2LwAPZhjlkx+x62mNwuQK5PAu9d3D+JXMNlGx8akZbqpXvp0vA54rz+DrqYVrzUGDMhwKmwQ==" crossorigin="anonymous"></script>
+        <link href="/css/core.css" rel="stylesheet" type="text/css" />
+        <link href="/css/home.css" rel="stylesheet" type="text/css" />
+        <script src="/js/main.js" type="text/javascript"></script>
 
         <script>
             $(document).ready(function(){
@@ -13,45 +14,59 @@
         </script>
     </head>
     <body>
-        <div id="navbar">
-            <div id="navlogoc">
-                <a href="index.html">
-                    <img id="navlogo" src="images/Logo.png"/>
-                </a>
-            </div>
-            <div id="navlogoc">
-                <h1 class=navtitle>Water <span>Wiz</span></h1>
-            </div>
-            <div id="navc">
-                <a href="map.html">MAP
-                </a>
-            </div>
-            <div id="navc">
-                <a href="info.html#AquaAmerica">WATER SUPPLIERS
-                </a>
-            </div>
-            <div id="navc">
-                <a href="index.html">HOME
-                </a>
-            </div>
-            <div style="background-color: black; width: 100%; height: 3px; margin-top: 90px"></div>
+        <nav id="main-nav">
+            <ul class="nav-group nav-group-grow">
+                <li id="nav-logo">
+                    <a href="/">
+                        <img width="40" src="/img/Logo.png" />
+                    </a>
+                </li>
+                <li>
+                    <h1 class="nav-brand">
+                        <span class="nav-brand-special">Water</span> Wiz
+                    </h1>
+                </li>
+            </ul>
+            <ul class="nav-group">
+                <li>
+                    <a class="nav-btn" href="/">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-btn" href="/suppliers">
+                        Water Suppliers
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-btn" href="/map">
+                        Map
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="landing-container">
+            <div class="landing-backdrop"></div>
+            <h1 class="landing-cta">WaterWiz</h1>
         </div>
 
-        <div>
-            <img id="landingimg" src="images/Ocean.jpg"/>
-        </div>
-
-        <div style="height: 10px; background-color: black"></div>
-
-        <center>
-            <p id=subtitle>Our mission is to make sure your water is safe</p>
-        </center>
-        <!--h2><script>test();</script></h2-->
-        <p id=regtext>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        <p id=regtext>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-    
-    <div id="footer">
-        <p id="footerText">Developed for Philly Codefest 2020</p>
-    </div>
+        <article id="home-content">
+            <header>
+                <h1 class="home-title">Our mission is to make sure your water is safe</h1>
+            </header>
+            <main>
+                <p class="home-paragraph">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+                <p class="home-paragraph">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </main>
+        </article>
+        
+        <footer id="main-footer">
+            Developed for Philly Codefest 2020
+        </footer>
     </body>
 </html>
