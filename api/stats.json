@@ -1,0 +1,450 @@
+{
+    "suppliers": [
+        {
+            "id": "philadelphia-water",
+            "name": "Philadelphia Water Department",
+            "counties": [
+                {
+                    "id": "philadelphia-county",
+                    "name": "Philadelphia County",
+                    "systems": [
+                        {
+                            "name": "Baxter",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "The Baxter WTP is located in Torresdale; water comes from the Delaware River.",
+                            "stats": [
+                                7.4,
+                                0.65,
+                                97,
+                                0.09,
+                                2.94,
+                                3,
+                                0.28,
+                                50,
+                                24,
+                                2.41
+                            ]
+                        },
+                        {
+                            "name": "Belmont",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "The Belmont WTP is located in Wynnefield; water also comes from the Schuylkill River",
+                            "stats": [
+                                7.4,
+                                0.65,
+                                130,
+                                0.086,
+                                2.175,
+                                3,
+                                0.28,
+                                50,
+                                43,
+                                2.41
+                            ]
+                        },
+                        {
+                            "name": "Queen Lane",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "The Queen Lane WTP is located in East Falls; water comes from the Schuylkill River.",
+                            "stats": [
+                                7.4,
+                                0.65,
+                                151,
+                                0.07,
+                                2.195,
+                                3,
+                                0.28,
+                                50,
+                                37,
+                                2.41
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "american-water",
+            "name": "American Water",
+            "counties": [
+                {
+                    "name": "Montgomery County",
+                    "systems": [
+                        {
+                            "name": "Norristown",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Boroughs of Norristown and Bridgeport, portions of West Norriton, East Norriton, Upper Merion, Plymouth, Lower Providence, Whitpain, Worcester, Whitemarsh and Perkiomen Townships Water Source: Schuylkill River",
+                            "stats": [
+                                5.69,
+                                0,
+                                121,
+                                0.2,
+                                2.07,
+                                0,
+                                0.322,
+                                34,
+                                23,
+                                1.7
+                            ]
+                        },
+                        {
+                            "name": "Royersford",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Royersford Water Source: Schuylkill River",
+                            "stats": [
+                                7.4,
+                                0.1,
+                                154,
+                                0.06,
+                                1.345,
+                                0.002,
+                                0.24,
+                                51,
+                                34.5,
+                                3.35
+                            ]
+                        }
+                    ],
+                    "id": "montgomery-county"
+                },
+                {
+                    "name": "Bucks County",
+                    "systems": [
+                        {
+                            "name": "Yardley",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Borough of Yardley and portions of Lower Makefield and Falls Townships Water Source: Delaware River + Groundwells",
+                            "stats": [
+                                7.85,
+                                0.1,
+                                77,
+                                0.13,
+                                1.45,
+                                0.002,
+                                0.09,
+                                56,
+                                30,
+                                4.6
+                            ]
+                        }
+                    ],
+                    "id": "bucks-county"
+                },
+                {
+                    "name": "Chester County",
+                    "systems": [
+                        {
+                            "name": "Coatesville",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Coatesville, Parkesburg, Atglen, Christiana, Quarryville, Downingtown, Thorndale, West Caln, Bart, Sadsbury, West Sadsbury, South Coatesville, East Fallowfield and Caln Townships Water Source: Rock Run Reservoir, Brandywine Creek",
+                            "stats": [
+                                7.6,
+                                0.45,
+                                83,
+                                0.23,
+                                2.165,
+                                0.001,
+                                0.066,
+                                47.9,
+                                32,
+                                3.77
+                            ]
+                        },
+                        {
+                            "name": "Phoenixville",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Portion of Phoenixville Borough Water Source: Schuylkill River",
+                            "stats": [
+                                6.85,
+                                0.5,
+                                83145,
+                                0.09,
+                                2.23,
+                                0.004,
+                                0.5,
+                                50,
+                                25,
+                                3
+                            ]
+                        }
+                    ],
+                    "id": "chester-county"
+                }
+            ]
+        },
+        {
+            "id": "audubon-water",
+            "name": "Audubon Water Company",
+            "counties": [
+                {
+                    "name": "Montgomery County",
+                    "systems": [
+                        {
+                            "name": "Audubon",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Audubon Water Source: Several ground wells throughout the area",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                1.31,
+                                0,
+                                0.08,
+                                14.3,
+                                -1,
+                                1.45
+                            ]
+                        },
+                        {
+                            "name": "Valley Forge Crossing",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Royersford Water Source: Schuylkill River",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                1.37,
+                                0,
+                                0.15,
+                                -1,
+                                -1,
+                                3.94
+                            ]
+                        }
+                    ],
+                    "id": "montgomery-county"
+                }
+            ]
+        },
+        {
+            "id": "aqua-america",
+            "name": "Aqua America",
+            "counties": [
+                {
+                    "name": "Montgomery County",
+                    "systems": [
+                        {
+                            "name": "Collegeville",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Perkiomen Woods System Water Source: Groundwater Supply",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                1.7,
+                                1.7,
+                                1.4,
+                                10,
+                                -1,
+                                4.4
+                            ]
+                        },
+                        {
+                            "name": "Mont Clare, Upper Providence",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Upper Providence Water Source: Schuylkill River",
+                            "stats": [
+                                -1,
+                                0.5,
+                                -1,
+                                -1,
+                                1.4,
+                                0,
+                                0.23,
+                                54,
+                                -1,
+                                3
+                            ]
+                        },
+                        {
+                            "name": "Horsham, Hatboro, Willow Grove",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Hatboro Water Source: Groundwater, Delaware River",
+                            "stats": [
+                                -1,
+                                0,
+                                -1,
+                                -1,
+                                1.5,
+                                0,
+                                0.6,
+                                7,
+                                -1,
+                                3.2
+                            ]
+                        },
+                        {
+                            "name": "Lansdale",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Center Point Farm, Lansdale, Worcester Township Water Source: Wellwater",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                1.7,
+                                0,
+                                0.146,
+                                2.45,
+                                -1,
+                                1.5
+                            ]
+                        }
+                    ],
+                    "id": "montgomery-county"
+                },
+                {
+                    "name": "Bucks County",
+                    "systems": [
+                        {
+                            "name": "Doylestown",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Doylestown Water Source: Groundwater Supply",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                1.5,
+                                3.8,
+                                0.7,
+                                -1,
+                                -1,
+                                2.3
+                            ]
+                        },
+                        {
+                            "name": "Ben Salem, Langhorne, Feasterville, Trevose, Croydon",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Ben Salem Division Water Source: Delaware River and Neshaminy Creek",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                1.7,
+                                0.07,
+                                32,
+                                -1,
+                                -1
+                            ]
+                        },
+                        {
+                            "name": "New Hope",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: New Hope, Peddler's View Division Water Source: Groundwater Wells",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                1.4,
+                                0,
+                                0.08,
+                                12.7,
+                                -1,
+                                1.9
+                            ]
+                        },
+                        {
+                            "name": "Feasterville, Trevose, Bensalem, Bristol, Croydon, Levittown",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Bristol Division Water Source: Delaware River and Wells",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                2.975,
+                                0,
+                                0.156,
+                                28,
+                                -1,
+                                4
+                            ]
+                        }
+                    ],
+                    "id": "bucks-county"
+                },
+                {
+                    "name": "Chester County",
+                    "systems": [
+                        {
+                            "name": "Honeybrook",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: UGS North Division Water Source: Groundwater Supply, Supplemented with water purchased from DWMA (Brandywine Creek, Marsh Creek Reservoir)",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                1.6,
+                                0,
+                                0.57,
+                                9,
+                                -1,
+                                5.2
+                            ]
+                        },
+                        {
+                            "name": "Phoenixville",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: East Pikeland, Phoenixville Water Source: Schuylkill River",
+                            "stats": [
+                                -1,
+                                0.5,
+                                -1,
+                                -1,
+                                0.2,
+                                0,
+                                0.23,
+                                54,
+                                -1,
+                                3
+                            ]
+                        },
+                        {
+                            "name": "Lincoln University",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: Franklin Division Water Source: Groundwater",
+                            "stats": [
+                                -1,
+                                -1,
+                                -1,
+                                -1,
+                                0.58,
+                                0,
+                                0.45,
+                                3,
+                                -1,
+                                -1
+                            ]
+                        },
+                        {
+                            "name": "West Chester, Coatesville, Downingtown",
+                            "waterStatus": "Good - Safe to drink",
+                            "description": "Areas served: UGS South Division Water Source: Groundwater, supplemented w/ Brandywine Creek",
+                            "stats": [
+                                -1,
+                                0.2,
+                                -1,
+                                -1,
+                                1.3,
+                                0,
+                                0.56,
+                                36,
+                                -1,
+                                4.1
+                            ]
+                        }
+                    ],
+                    "id": "chester-county"
+                }
+            ]
+        }
+    ]
+}

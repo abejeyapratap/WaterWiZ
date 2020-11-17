@@ -23,6 +23,7 @@ nav {
 
 nav#main-nav {
     background-color: var(--nav-background);
+    height: 59px;
 }
 
 nav > .nav-group {
