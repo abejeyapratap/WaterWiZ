@@ -1,0 +1,84 @@
+main#main-content {
+    min-height: calc(100vw - 60px);
+}
+
+#supplier-heading {
+    --spacing: 20px;
+
+    display: flex;
+    flex-flow: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--spacing) 0;
+}
+
+#supplier-heading > h1 {
+    padding-bottom: var(--spacing);
+}
+
+#supplier-heading > hr {
+    width: 100%;
+}
+
+.counties-container {
+    display: flex;
+    flex-flow: column;
+}
+
+.county-container {
+    display: flex;
+    flex-flow: column;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.county-container:not(:last-child) {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.county-container > .systems-container {
+    width: 100%;
+    padding-top: 20px;
+    max-width: min(1000px, calc(100vw - 200px));
+}
+
+.system-container:not(:last-child) {
+    padding-bottom: 20px;
+}
+
+.system-name {
+    text-decoration: underline;
+}
+
+.system-description, .system-name {
+    margin-bottom: 10px;
+}
+
+.stat-container {
+    display: flex;
+    flex-flow: row;
+
+    align-items: center;
+
+    height: 68px;
+
+    position: relative;
+}
+
+.stat-container > .stat-name {
+    width: 100px;
+    text-align: right;
+    
+    margin-top: -30px;
+}
+
+.stat-container > :not(.stat-name) {
+    flex: 1;
+}

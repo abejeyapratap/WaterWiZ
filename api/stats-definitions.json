@@ -1,0 +1,124 @@
+{
+    "stats": [
+        {
+            "name": "pH",
+            "safeRange": [
+                6.5,
+                8.5
+            ],
+            "unit": "pH",
+            "range": [
+                0,
+                14
+            ]
+        },
+        {
+            "name": "Fluoride",
+            "safeRange": [
+                0,
+                4
+            ],
+            "unit": "ppm",
+            "range": [
+                0,
+                10
+            ]
+        },
+        {
+            "name": "Hardness",
+            "safeRange": [
+                0,
+                120
+            ],
+            "unit": "ppm",
+            "range": [
+                0,
+                150
+            ]
+        },
+        {
+            "name": "Turbidity",
+            "safeRange": [
+                0,
+                0.3
+            ],
+            "unit": "NTU",
+            "range": [
+                0,
+                1
+            ]
+        },
+        {
+            "name": "Chlorine",
+            "safeRange": [
+                0,
+                4
+            ],
+            "unit": "ppm",
+            "range": [
+                0,
+                10
+            ]
+        },
+        {
+            "name": "Lead",
+            "safeRange": [
+                0,
+                15
+            ],
+            "unit": "ppb",
+            "range": [
+                0,
+                25
+            ]
+        },
+        {
+            "name": "Copper",
+            "safeRange": [
+                0,
+                1.3
+            ],
+            "unit": "ppm",
+            "range": [
+                0,
+                10
+            ]
+        },
+        {
+            "name": "Trihalomethanes",
+            "safeRange": [
+                0,
+                80
+            ],
+            "unit": "ppb",
+            "range": [
+                0,
+                100
+            ]
+        },
+        {
+            "name": "Sodium",
+            "safeRange": [
+                0,
+                45
+            ],
+            "unit": "ppm",
+            "range": [
+                0,
+                60
+            ]
+        },
+        {
+            "name": "Nitrates",
+            "safeRange": [
+                0,
+                10
+            ],
+            "unit": "ppm",
+            "range": [
+                0,
+                20
+            ]
+        }
+    ]
+}
