@@ -2,7 +2,7 @@ header{
     width: 100vw;
     height: 500px;
 
-    background: url("/img/suppliers.jpg") no-repeat center;
+    background: url("https://scx1.b-cdn.net/csz/news/800/2016/63-scientistsdi.jpg") no-repeat center;
 
     display: flex;
     flex-flow: column;
@@ -10,6 +10,10 @@ header{
     justify-content: center;
     color: #ffffff;
     border-bottom: 2px solid black;
+}
+
+body {
+    background-color: #F1F3F7;
 }
 
 header h1{
@@ -47,12 +51,22 @@ header > #descrip{
     overflow: hidden;
 
     box-sizing: border-box;
-    border-radius: 5px;
-    padding: 10px;
-    color: azure;
+    border-radius: 10px;
+    overflow: hidden;
+    color: black;
     max-width: 300px;
 
     height: 480px;
+
+    border: 1px solid #E5E9F0;
+}
+
+.box > div > img {
+    border-bottom: 1px solid #E5E9F0;
+}
+
+.box > div > *:not(img) {
+    padding: 0 10px;
 }
 
 #box-icons > .box > div > h3.supplier-name{
@@ -74,15 +88,16 @@ ul {
 
 .box img{
     width: 100%;
-    border-radius: 10px;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
 }
 
 @media(max-width: 569px) {
     /* #box-icons{
         display: flex;
         /* flex-flow: column; */
-        /* align-items: center; */
-    } */
+        /* align-items: center; 
+    }*/
 
     #box-icons .box{
         margin-left: 5px;
