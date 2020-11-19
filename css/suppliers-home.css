@@ -39,7 +39,7 @@ header > #descrip{
 #box-icons > .box{
     margin: 10px;
     flex: 1;
-    background-color: #1D5F6A;
+    background-color: white;
     min-width: 250px;
 
     text-align: center;
