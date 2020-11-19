@@ -97,12 +97,14 @@ namespace SuppliersDOM {
 
     export function makeSystem({ name, waterStatus, description, stats }: WaterSystem): HTMLElement {
         return element("div", [
-            element("h3", name, { class: "system-name" }),
-            element("p", description, { class: "system-description" }),
-            element("p", [
-                element("strong", "Water Status: "),
-                waterStatus
-            ], { class: "water-status" }),
+            element("div", [
+                element("h3", name, { class: "system-name" }),
+                element("p", description, { class: "system-description" }),
+                element("p", [
+                    element("strong", "Water Status: "),
+                    waterStatus
+                ], { class: "water-status" })
+            ], { class: "system-info" }),
             element("div", [
                 element("div", [], {
                     name: "chart",
@@ -157,7 +159,7 @@ namespace SuppliersCharting {
         let chartsLoaded = false;
         let statsLoaded = false;
 
-        google.charts.load("current", { packages: ["bar"] });
+        google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(function() {
             if (statsLoaded && cb) cb();
             chartsLoaded = true;
@@ -195,10 +197,23 @@ namespace SuppliersCharting {
             const definition = definitions[index];
             if (!definition) return;
 
-            const data = google.visualization.arrayToDataTable([
-                ["", "Normal", "Actual"],
-                [" ", definition.safeRange[1], stat]
+            if (stat < 0) return;
+
+            const dataTable = new google.visualization.DataTable();
+
+            dataTable.addColumn("string", "");
+            dataTable.addColumn("number", "");
+            dataTable.addColumn({ type: "string", role: "tooltip" });
+
+            dataTable.addRows([
+                ["Normal", definition.safeRange[1], `${definition.safeRange[1]} ${definition.unit}`],
+                ["Actual", stat, `${stat} ${definition.unit}`]
             ]);
+
+            // const data = google.visualization.arrayToDataTable([
+            //     ["", "Normal", "Actual"],
+            //     [" ", definition.safeRange[1], stat]
+            // ]);
 
             const chartContainer = document.createElement("div");
 
@@ -209,17 +224,21 @@ namespace SuppliersCharting {
 
             chart.appendChild(container);
 
-            const gChart = new (google.charts as any).Bar(chartContainer);
+            const gChart = new google.visualization.BarChart(chartContainer);
             
-            charts.push([gChart, [data, {
+            charts.push([gChart, [dataTable, {
                 bars: "horizontal",
-                height: 50,
-                legend: "none",
+                theme: "material",
+                height: 90,
+                legend: {
+                    position: "none"
+                },
                 tooltip: {
-                    textStyle: {
-                        fontSize: 12
+                    style: {
+                        pointerEvents: 'none'
                     }
                 },
+                focusTarget: "category",
                 allowAsync: true
             }]]);
         });

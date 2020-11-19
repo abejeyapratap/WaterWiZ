@@ -45,12 +45,25 @@ main#main-content {
 
 .county-container > .systems-container {
     width: 100%;
-    padding-top: 20px;
+    padding-top: 40px;
     max-width: min(1000px, calc(100vw - 200px));
 }
 
 .system-container:not(:last-child) {
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
+}
+
+.system-container {
+    display: flex;
+    flex-flow: row;
+    margin: 10px 0;
+    padding: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+.system-container > * {
+    flex: 1;
 }
 
 .system-name {
@@ -59,6 +72,14 @@ main#main-content {
 
 .system-description, .system-name {
     margin-bottom: 10px;
+}
+
+div[name=chart] {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 40px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .stat-container {
@@ -73,7 +94,7 @@ main#main-content {
 }
 
 .stat-container > .stat-name {
-    width: 100px;
+    width: 130px;
     text-align: right;
     
     margin-top: -30px;
@@ -81,4 +102,8 @@ main#main-content {
 
 .stat-container > :not(.stat-name) {
     flex: 1;
+}
+
+svg > g:last-child:not(:only-child) > g:only-child {
+    pointer-events: none;
 }

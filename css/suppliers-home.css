@@ -1,8 +1,8 @@
 header{
     width: 100vw;
-    height: 60vh;
+    height: 500px;
 
-    background: url("/img/suppimg.jpg") no-repeat center;
+    background: url("/img/suppliers.jpg") no-repeat center;
 
     display: flex;
     flex-flow: column;
@@ -24,33 +24,48 @@ header > #descrip{
 }
 
 #box-icons{
-    margin-top: 20px;
+    margin: 20px;
     display: flex;
     flex-flow: row wrap;
+    flex-direction: row;
 
     /*background-color: aqua;*/
     justify-content: center;
     position: relative;
 
+    /* column-gap: 40px; */
 }
+
 #box-icons > .box{
     margin: 10px;
-    width: 25%;
-    background-color: #808080;
+    flex: 1;
+    background-color: #1D5F6A;
+    min-width: 250px;
 
     text-align: center;
     text-decoration: none;
     overflow: hidden;
 
     box-sizing: border-box;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    border-radius: 5px;
+    padding: 10px;
     color: azure;
+    max-width: 300px;
+
+    height: 480px;
 }
 
 #box-icons > .box > div > h3.supplier-name{
     font-size: 1.25em;
+    margin: 10px 0 5px 0;
+}
+
+#box-icons > .box > div > p {
+    margin: 5px 0;
+}
+
+#box-icons > .box > div > ul {
+    margin: 5px 0 10px 0;
 }
 
 ul { 
@@ -62,22 +77,22 @@ ul {
     border-radius: 10px;
 }
 
-@media(max-width: 768px) {
-    #box-icons{
+@media(max-width: 569px) {
+    /* #box-icons{
         display: flex;
-        flex-flow: column;
-        align-items: center;
-    }
+        /* flex-flow: column; */
+        /* align-items: center; */
+    } */
 
     #box-icons .box{
         margin-left: 5px;
-        width: 90%;
+        max-width: 90%;
         text-align: center;
         
     }
 
     .box img{
-        max-width: 50%;
-        max-height: 50%;
+        /* max-width: 50%; */
+        /* max-height: 50%; */
     }
 }

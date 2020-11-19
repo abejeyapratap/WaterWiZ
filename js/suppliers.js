@@ -86,12 +86,14 @@ var SuppliersDOM;
     function makeSystem(_a) {
         var name = _a.name, waterStatus = _a.waterStatus, description = _a.description, stats = _a.stats;
         return element("div", [
-            element("h3", name, { class: "system-name" }),
-            element("p", description, { class: "system-description" }),
-            element("p", [
-                element("strong", "Water Status: "),
-                waterStatus
-            ], { class: "water-status" }),
+            element("div", [
+                element("h3", name, { class: "system-name" }),
+                element("p", description, { class: "system-description" }),
+                element("p", [
+                    element("strong", "Water Status: "),
+                    waterStatus
+                ], { class: "water-status" })
+            ], { class: "system-info" }),
             element("div", [
                 element("div", [], __assign({ name: "chart" }, stats.reduce(function (collector, stat, index) { return (collector["stat-" + index] = stat.toString(), collector); }, {})))
             ])
@@ -130,7 +132,7 @@ var SuppliersCharting;
     function loadStatisticDefinitions(cb) {
         var chartsLoaded = false;
         var statsLoaded = false;
-        google.charts.load("current", { packages: ["bar"] });
+        google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(function () {
             if (statsLoaded && cb)
                 cb();
@@ -166,26 +168,40 @@ var SuppliersCharting;
             var definition = definitions[index];
             if (!definition)
                 return;
-            var data = google.visualization.arrayToDataTable([
-                ["", "Normal", "Actual"],
-                [" ", definition.safeRange[1], stat]
+            if (stat < 0)
+                return;
+            var dataTable = new google.visualization.DataTable();
+            dataTable.addColumn("string", "");
+            dataTable.addColumn("number", "");
+            dataTable.addColumn({ type: "string", role: "tooltip" });
+            dataTable.addRows([
+                ["Normal", definition.safeRange[1], definition.safeRange[1] + " " + definition.unit],
+                ["Actual", stat, stat + " " + definition.unit]
             ]);
+            // const data = google.visualization.arrayToDataTable([
+            //     ["", "Normal", "Actual"],
+            //     [" ", definition.safeRange[1], stat]
+            // ]);
             var chartContainer = document.createElement("div");
             var container = element("div", [
                 element("span", definition.name, { class: "stat-name" }),
                 chartContainer
             ], { class: "stat-container" });
             chart.appendChild(container);
-            var gChart = new google.charts.Bar(chartContainer);
-            charts.push([gChart, [data, {
+            var gChart = new google.visualization.BarChart(chartContainer);
+            charts.push([gChart, [dataTable, {
                         bars: "horizontal",
-                        height: 50,
-                        legend: "none",
+                        theme: "material",
+                        height: 90,
+                        legend: {
+                            position: "none"
+                        },
                         tooltip: {
-                            textStyle: {
-                                fontSize: 12
+                            style: {
+                                pointerEvents: 'none'
                             }
                         },
+                        focusTarget: "category",
                         allowAsync: true
                     }]]);
         });

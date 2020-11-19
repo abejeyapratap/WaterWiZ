@@ -22,7 +22,7 @@ nav {
 }
 
 nav#main-nav {
-    background-color: var(--nav-background);
+    background-color: #084C61;
     height: 59px;
 }
 
@@ -48,6 +48,7 @@ nav > ul.nav-group > li {
     flex-flow: row;
     align-items: center;
     justify-content: center;
+
 }
 
 /** Expand nav-group-grow **/
@@ -67,7 +68,7 @@ nav .nav-btn:hover {
 }
 
 nav .nav-btn a, nav a.nav-btn {
-    color: initial;
+    color: white;
     text-decoration: none;
 }
 
@@ -85,10 +86,11 @@ nav > .nav-group > #nav-logo > a {
 
 nav > .nav-group > li > h1.nav-brand {
     margin-left: 10px;
+    color: white;
 }
 
 nav > .nav-group > li > h1.nav-brand > span.nav-brand-special {
-    color: #126597;
+    color: #1fa1ef;
 }
 
 /*
@@ -99,6 +101,8 @@ body > footer#main-footer {
     display: flex;
     flex-flow: row;
     padding: 20px 30px;
-    background-color: var(--nav-background);
+    background-color: #4088AC;
     color: white;
+    font-size: 12px;
+    font-weight: 600;
 }

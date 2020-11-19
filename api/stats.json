@@ -9,9 +9,9 @@
                     "name": "Philadelphia County",
                     "systems": [
                         {
-                            "name": "Baxter",
+                            "name": "Baxter Plant",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "The Baxter WTP is located in Torresdale; water comes from the Delaware River.",
+                            "description": "The Baxter Water Treatment Plant serves Northeast and parts of South Philadelphia.",
                             "stats": [
                                 7.4,
                                 0.65,
@@ -26,9 +26,9 @@
                             ]
                         },
                         {
-                            "name": "Belmont",
+                            "name": "Belmont Plant",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "The Belmont WTP is located in Wynnefield; water also comes from the Schuylkill River",
+                            "description": "The Belmont Water Treatment Plant serves Southwest Philadelphia.",
                             "stats": [
                                 7.4,
                                 0.65,
@@ -43,9 +43,9 @@
                             ]
                         },
                         {
-                            "name": "Queen Lane",
+                            "name": "Queen Lane Plant",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "The Queen Lane WTP is located in East Falls; water comes from the Schuylkill River.",
+                            "description": "The Queen Lane Water Treatment Plant serves Northwest and parts of South Philadelphia.",
                             "stats": [
                                 7.4,
                                 0.65,
