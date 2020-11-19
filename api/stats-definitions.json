@@ -26,7 +26,7 @@
             "name": "Fluoride",
             "safeRange": [
                 0,
-                4
+                2
             ],
             "unit": "ppm",
             "range": [
@@ -46,7 +46,7 @@
             "name": "Hardness",
             "_safeRange": [
                 0,
-                120
+                200
             ],
             "unit": "ppm",
             "range": [
@@ -86,7 +86,7 @@
         {
             "name": "Chlorine",
             "safeRange": [
-                0,
+                2,
                 4
             ],
             "unit": "ppm",
@@ -167,7 +167,7 @@
             "name": "Sodium",
             "safeRange": [
                 0,
-                45
+                30
             ],
             "unit": "ppm",
             "range": [

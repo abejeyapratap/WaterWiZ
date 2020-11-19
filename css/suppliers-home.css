@@ -2,8 +2,8 @@ header{
     width: 100vw;
     height: 500px;
 
-    background: url("https://scx1.b-cdn.net/csz/news/800/2016/63-scientistsdi.jpg") no-repeat center;
-
+    background: url("/img/suppback2.jpg") no-repeat 0 -50px;
+    background-size: 100vw;
     display: flex;
     flex-flow: column;
     align-items: center;
