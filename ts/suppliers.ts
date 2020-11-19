@@ -67,7 +67,7 @@ namespace SuppliersCore {
 }
 
 namespace SuppliersDOM {
-    type Child = HTMLElement | string;
+    type Child = HTMLElement | string | { html: string, tag: string } | { text: string };
 
     export function element(tagName: Parameters<typeof document["createElement"]>[0], children: Child | Child[] = [], attributes: Record<string, string> = {}): HTMLElement {
         const element = document.createElement(tagName);
@@ -76,7 +76,13 @@ namespace SuppliersDOM {
 
         for (let child of children) {
             if (typeof child === "string") element.appendChild(document.createTextNode(child));
-            else element.appendChild(child);
+            else if (child instanceof HTMLElement) element.appendChild(child);
+            else if ("html" in child && "tag" in child) {
+                const newElement = document.createElement(child.tag);
+                newElement.innerHTML = child.html;
+                element.appendChild(newElement);
+            }
+            else if ("text" in child) element.appendChild(document.createTextNode(child.text));
         }
 
         for (let key in attributes) {
@@ -99,7 +105,7 @@ namespace SuppliersDOM {
         return element("div", [
             element("div", [
                 element("h3", name, { class: "system-name" }),
-                element("p", description, { class: "system-description" }),
+                element("p", { html: description, tag: "div" }, { class: "system-description" }),
                 element("p", [
                     element("strong", "Water Status: "),
                     waterStatus
@@ -143,8 +149,10 @@ namespace SuppliersCharting {
 
     export interface StatisticDefinition {
         name: string;
+        description?: string;
         range: [number, number];
         safeRange: [number, number];
+        ticks: number[];
         unit: string;
         color?: string;
     }
@@ -204,10 +212,14 @@ namespace SuppliersCharting {
             dataTable.addColumn("string", "");
             dataTable.addColumn("number", "");
             dataTable.addColumn({ type: "string", role: "tooltip" });
+            dataTable.addColumn({ role: "style" })
+
+            if (definition.safeRange) dataTable.addRows([
+                ["Normal", definition.safeRange[1], `${definition.safeRange[1]} ${definition.unit}`, "#C90C06"],
+            ]);
 
             dataTable.addRows([
-                ["Normal", definition.safeRange[1], `${definition.safeRange[1]} ${definition.unit}`],
-                ["Actual", stat, `${stat} ${definition.unit}`]
+                ["Actual", stat, `${stat} ${definition.unit}`, ""]
             ]);
 
             // const data = google.visualization.arrayToDataTable([
@@ -218,7 +230,11 @@ namespace SuppliersCharting {
             const chartContainer = document.createElement("div");
 
             const container = element("div", [
-                element("span", definition.name, { class: "stat-name" }),
+                // element("span", definition.name, { class: "stat-name" }),
+                element("div", [
+                    element("h4", definition.name, { class: "stat-name" }),
+                    element("p", definition.description, { class: "stat-description" })
+                ], { class: "stat-info" })
                 chartContainer
             ], { class: "stat-container" });
 
@@ -230,8 +246,14 @@ namespace SuppliersCharting {
                 bars: "horizontal",
                 theme: "material",
                 height: 90,
+                chartArea: {left:50, width: "100%"},
                 legend: {
                     position: "none"
+                },
+                hAxis: {
+                    minValue: 0,
+                    maxValue: definition.range[1],
+                    ticks: definition.ticks || [0]
                 },
                 tooltip: {
                     style: {

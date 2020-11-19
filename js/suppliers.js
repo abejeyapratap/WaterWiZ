@@ -64,8 +64,15 @@ var SuppliersDOM;
             var child = children_1[_i];
             if (typeof child === "string")
                 element.appendChild(document.createTextNode(child));
-            else
+            else if (child instanceof HTMLElement)
                 element.appendChild(child);
+            else if ("html" in child && "tag" in child) {
+                var newElement = document.createElement(child.tag);
+                newElement.innerHTML = child.html;
+                element.appendChild(newElement);
+            }
+            else if ("text" in child)
+                element.appendChild(document.createTextNode(child.text));
         }
         for (var key in attributes) {
             element.setAttribute(key, attributes[key]);
@@ -88,7 +95,7 @@ var SuppliersDOM;
         return element("div", [
             element("div", [
                 element("h3", name, { class: "system-name" }),
-                element("p", description, { class: "system-description" }),
+                element("p", { html: description, tag: "div" }, { class: "system-description" }),
                 element("p", [
                     element("strong", "Water Status: "),
                     waterStatus
@@ -174,9 +181,13 @@ var SuppliersCharting;
             dataTable.addColumn("string", "");
             dataTable.addColumn("number", "");
             dataTable.addColumn({ type: "string", role: "tooltip" });
+            dataTable.addColumn({ role: "style" });
+            if (definition.safeRange)
+                dataTable.addRows([
+                    ["Normal", definition.safeRange[1], definition.safeRange[1] + " " + definition.unit, "#C90C06"],
+                ]);
             dataTable.addRows([
-                ["Normal", definition.safeRange[1], definition.safeRange[1] + " " + definition.unit],
-                ["Actual", stat, stat + " " + definition.unit]
+                ["Actual", stat, stat + " " + definition.unit, ""]
             ]);
             // const data = google.visualization.arrayToDataTable([
             //     ["", "Normal", "Actual"],
@@ -184,7 +195,11 @@ var SuppliersCharting;
             // ]);
             var chartContainer = document.createElement("div");
             var container = element("div", [
-                element("span", definition.name, { class: "stat-name" }),
+                // element("span", definition.name, { class: "stat-name" }),
+                element("div", [
+                    element("h4", definition.name, { class: "stat-name" }),
+                    element("p", definition.description, { class: "stat-description" })
+                ], { class: "stat-info" }),
                 chartContainer
             ], { class: "stat-container" });
             chart.appendChild(container);
@@ -193,8 +208,14 @@ var SuppliersCharting;
                         bars: "horizontal",
                         theme: "material",
                         height: 90,
+                        chartArea: { left: 50, width: "100%" },
                         legend: {
                             position: "none"
+                        },
+                        hAxis: {
+                            minValue: 0,
+                            maxValue: definition.range[1],
+                            ticks: definition.ticks || [0]
                         },
                         tooltip: {
                             style: {

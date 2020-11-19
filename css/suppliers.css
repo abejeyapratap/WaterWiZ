@@ -55,7 +55,10 @@ main#main-content {
 
 .system-container {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
+
+    row-gap: 20px;
+
     margin: 10px 0;
     padding: 40px;
     border: 1px solid rgba(0, 0, 0, 0.3);
@@ -78,13 +81,14 @@ div[name=chart] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 10px;
-    row-gap: 40px;
+    row-gap: 60px;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    padding-bottom: 20px;
 }
 
 .stat-container {
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
 
     align-items: center;
 
@@ -96,8 +100,6 @@ div[name=chart] {
 .stat-container > .stat-name {
     width: 130px;
     text-align: right;
-    
-    margin-top: -30px;
 }
 
 .stat-container > :not(.stat-name) {
