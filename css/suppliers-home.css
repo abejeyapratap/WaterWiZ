@@ -1,13 +1,11 @@
 header{
     width: 100vw;
     height: 500px;
-
     /**
     background: url("/img/suppback2.jpg");
     background-size: cover;
     background-position: center;
     **/
-
     background: url("/img/suppback2.jpg") no-repeat center;
     background-size: cover;
     display: flex;
@@ -37,10 +35,11 @@ header > #descrip{
     margin: 20px;
     display: flex;
     flex-flow: row wrap;
-    flex-direction: row;
+    /*flex-direction: row;*/
 
     /*background-color: aqua;*/
     justify-content: center;
+    
     position: relative;
 
     /* column-gap: 40px; */
@@ -61,17 +60,17 @@ header > #descrip{
     overflow: hidden;
     color: black;
     max-width: 300px;
-
-    height: 550px;
+    height: 300px;
 
     border: 1px solid #2e72a0;
+    position: relative;
 }
 
 .box > .supplier-container {
     display: flex;
     flex-flow: column;
     height: 100%;
-}
+} /*do we need this? */
 
 .box > div > img {
     border-bottom: 1px solid #E5E9F0;
@@ -82,7 +81,6 @@ header > #descrip{
     flex-flow: column;
 
     row-gap: 10px;
-
     padding: 10px;
 
     /** #2e72a0 **/
@@ -90,20 +88,41 @@ header > #descrip{
     /** #115a8c **/
     background-color: #115A8C;
     color: white;
-
     flex: 1;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: 0.5s ease;
+    height: 0;
+    width: 100%;
 }
+
+.box:hover .supplier-info{
+    height: 100%;
+}
+
+/* .overlay-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+} */
 
 .supplier-info > h3.supplier-name{
     font-size: 1.25em;
     margin: 10px 0 5px 0;
 }
 
-.supplier-info > p {
+.supplier-info > .overlay-text > p {
     margin: 5px 0;
 }
 
-.supplier-info > ul {
+.supplier-info > .overlay-text > ul {
     margin: 5px 0 10px 0;
 }
 
