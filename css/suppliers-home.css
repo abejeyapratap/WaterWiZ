@@ -2,8 +2,14 @@ header{
     width: 100vw;
     height: 500px;
 
-    background: url("/img/suppback2.jpg") no-repeat 0 -50px;
-    background-size: 100vw;
+    /**
+    background: url("/img/suppback2.jpg");
+    background-size: cover;
+    background-position: center;
+    **/
+
+    background: url("/img/suppback2.jpg") no-repeat center;
+    background-size: cover;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -56,29 +62,48 @@ header > #descrip{
     color: black;
     max-width: 300px;
 
-    height: 480px;
+    height: 550px;
 
-    border: 1px solid #E5E9F0;
+    border: 1px solid #2e72a0;
+}
+
+.box > .supplier-container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
 }
 
 .box > div > img {
     border-bottom: 1px solid #E5E9F0;
 }
 
-.box > div > *:not(img) {
-    padding: 0 10px;
+.supplier-info {
+    display: flex;
+    flex-flow: column;
+
+    row-gap: 10px;
+
+    padding: 10px;
+
+    /** #2e72a0 **/
+    /** #036eb7 **/
+    /** #115a8c **/
+    background-color: #115A8C;
+    color: white;
+
+    flex: 1;
 }
 
-#box-icons > .box > div > h3.supplier-name{
+.supplier-info > h3.supplier-name{
     font-size: 1.25em;
     margin: 10px 0 5px 0;
 }
 
-#box-icons > .box > div > p {
+.supplier-info > p {
     margin: 5px 0;
 }
 
-#box-icons > .box > div > ul {
+.supplier-info > ul {
     margin: 5px 0 10px 0;
 }
 

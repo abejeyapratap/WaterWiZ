@@ -10,6 +10,10 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var NORMAL = "#2962A5";
+var DANGER = "#C90C06";
+var CAUTION = "#F59112";
+var SAFE = "#377E22";
 var SuppliersCore;
 (function (SuppliersCore) {
     SuppliersCore.suppliers = {};
@@ -102,8 +106,17 @@ var SuppliersDOM;
                 ], { class: "water-status" })
             ], { class: "system-info" }),
             element("div", [
+                element("ul", [
+                    ["Normal", NORMAL],
+                    ["Safe", SAFE],
+                    ["Caution", CAUTION],
+                    ["Danger", DANGER]
+                ].map(function (_a) {
+                    var label = _a[0], color = _a[1];
+                    return (element("li", label, { class: "legend-item", style: "--legend-color: " + color }));
+                }), { class: "color-legend" }),
                 element("div", [], __assign({ name: "chart" }, stats.reduce(function (collector, stat, index) { return (collector["stat-" + index] = stat.toString(), collector); }, {})))
-            ])
+            ], { class: "chart-container" })
         ], {
             class: "system-container"
         });
@@ -135,7 +148,7 @@ var SuppliersDOM;
 var SuppliersCharting;
 (function (SuppliersCharting) {
     var element = SuppliersDOM.element;
-    var definitions = [];
+    SuppliersCharting.definitions = [];
     function loadStatisticDefinitions(cb) {
         var chartsLoaded = false;
         var statsLoaded = false;
@@ -146,7 +159,7 @@ var SuppliersCharting;
             chartsLoaded = true;
         });
         $.getJSON("/api/stats-definitions.json", function (data) {
-            definitions = data.stats;
+            SuppliersCharting.definitions = data.stats;
             if (chartsLoaded && cb)
                 cb();
             statsLoaded = true;
@@ -172,7 +185,7 @@ var SuppliersCharting;
             stats[index] = value;
         }
         stats.forEach(function (stat, index) {
-            var definition = definitions[index];
+            var definition = SuppliersCharting.definitions[index];
             if (!definition)
                 return;
             if (stat < 0)
@@ -180,14 +193,20 @@ var SuppliersCharting;
             var dataTable = new google.visualization.DataTable();
             dataTable.addColumn("string", "");
             dataTable.addColumn("number", "");
+            dataTable.addColumn("number", "");
+            dataTable.addColumn("number", "");
+            dataTable.addColumn("number", "");
             dataTable.addColumn({ type: "string", role: "tooltip" });
             dataTable.addColumn({ role: "style" });
             if (definition.safeRange)
                 dataTable.addRows([
-                    ["Normal", definition.safeRange[1], definition.safeRange[1] + " " + definition.unit, "#C90C06"],
+                    ["Normal", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], definition.safeRange[1] + " " + definition.unit, NORMAL],
                 ]);
+            var isDangerous = definition.safeRange ? stat > definition.safeRange[1] : false;
+            var isWarning = definition.safeRange ? (stat + (definition.ticks[1] / 2)) >= definition.safeRange[1] : false;
+            var color = isDangerous ? DANGER : isWarning ? CAUTION : SAFE;
             dataTable.addRows([
-                ["Actual", stat, stat + " " + definition.unit, ""]
+                ["Actual", 0, 0, stat, stat, stat + " " + definition.unit, color]
             ]);
             // const data = google.visualization.arrayToDataTable([
             //     ["", "Normal", "Actual"],
@@ -198,14 +217,13 @@ var SuppliersCharting;
                 // element("span", definition.name, { class: "stat-name" }),
                 element("div", [
                     element("h4", definition.name, { class: "stat-name" }),
-                    element("p", definition.description, { class: "stat-description" })
                 ], { class: "stat-info" }),
                 chartContainer
-            ], { class: "stat-container" });
+            ], __assign({ class: "stat-container", name: "stat-" + definition.name }, (isDangerous ? { dangerous: "dangerous" } : isWarning ? { warning: "warning" } : {})));
             chart.appendChild(container);
-            var gChart = new google.visualization.BarChart(chartContainer);
+            var gChart = new google.visualization.CandlestickChart(chartContainer);
             charts.push([gChart, [dataTable, {
-                        bars: "horizontal",
+                        orientation: "vertical",
                         theme: "material",
                         height: 90,
                         chartArea: { left: 50, width: "100%" },
@@ -253,6 +271,26 @@ var SupplierPage = /** @class */ (function () {
             var someCharts = chartPartials_1[_i];
             _loop_1(someCharts);
         }
+        setTimeout(function () {
+            SuppliersCharting.definitions.forEach(function (definition, index) {
+                var baseSelector = "[name=\"stat-" + definition.name + "\"]";
+                tippy(baseSelector, {
+                    content: definition.description,
+                    allowHTML: true,
+                    placement: (index % 2 === 0) ? "left" : "right"
+                });
+                tippy(baseSelector + "[warning]", {
+                    content: "This plant's " + definition.name + " level is near unhealthy levels.",
+                    theme: "caution",
+                    placement: "bottom"
+                });
+                tippy(baseSelector + "[dangerous]", {
+                    content: "This plant's " + definition.name + " level exceeds FDA standards!",
+                    theme: "dangerous",
+                    placement: "bottom"
+                });
+            });
+        }, 1000);
         console.log("told them to do it");
     };
     SupplierPage.prototype.element = function (selector) {

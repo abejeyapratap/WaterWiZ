@@ -64,7 +64,96 @@
     --home-font-size: 2em;
 
     font-size: var(--home-font-size);
-    line-height: var(--home-font-size);
 
     font-weight: 500;
+}
+
+/**
+ * Carousel
+ */
+
+.carousel {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+
+    height: 50vw;
+    max-height: 600px;
+    min-height: 330px;
+
+    position: relative;
+}
+
+.carousel > .slick-list {
+    flex: 1;
+    height: 100%;
+}
+
+.carousel > .slick-list > .slick-track, .carousel > .slick-list > .slick-track > * {
+    height: 100%;
+}
+
+.carousel > .slick-list > .slick-track > :nth-child(2n) {
+    background-color: red;
+}
+
+.carousel > .slick-list > .slick-track > :not(:nth-child(2n)) {
+    background-color: blue;
+}
+
+.carousel > .slick-arrow {
+    --inset: 10px;
+
+    position: absolute;
+    width: 25px;
+    height: 25px;
+
+    font-size: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    z-index: 100;
+
+    cursor: pointer;
+
+    margin-top: -3px;
+
+    background: none;
+}
+
+.carousel > .slick-arrow:focus {
+    outline: none;
+}
+
+.carousel > .slick-arrow::before {
+    display: block;
+    font-size: 36px;
+    color: white;
+    line-height: 1;
+    text-shadow: 0 0 7px black;
+}
+
+.carousel > .slick-prev {
+    left: var(--inset);
+}
+
+.carousel > .slick-prev::before {
+    content: '\2039';
+}
+
+.carousel > .slick-next {
+    right: var(--inset);
+}
+
+.carousel > .slick-next::before {
+    content: '\203A';
+    margin-right: -2px;
+}
+
+@media screen and (max-width: 750px) {
+    #home-content {
+        max-width: calc(100vw - 100px);
+    }
 }

@@ -226,9 +226,9 @@
                     "name": "Montgomery County",
                     "systems": [
                         {
-                            "name": "Collegeville",
+                            "name": "Perkiomen Woods",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: Perkiomen Woods System Water Source: Groundwater Supply",
+                            "description": "Areas served: Collegeville Water Source: Groundwater Supply",
                             "stats": [
                                 -1,
                                 -1,
@@ -243,9 +243,9 @@
                             ]
                         },
                         {
-                            "name": "Mont Clare, Upper Providence",
+                            "name": "Upper Providence",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: Upper Providence Water Source: Schuylkill River",
+                            "description": "Areas served: Mont Clare, Upper Providence Water Source: Schuylkill River",
                             "stats": [
                                 -1,
                                 0.5,
@@ -260,9 +260,9 @@
                             ]
                         },
                         {
-                            "name": "Horsham, Hatboro, Willow Grove",
+                            "name": "Hatboro",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: Hatboro Water Source: Groundwater, Delaware River",
+                            "description": "Areas served: Horsham, Hatboro, Willow Grove Water Source: Groundwater, Delaware River",
                             "stats": [
                                 -1,
                                 0,
@@ -277,7 +277,7 @@
                             ]
                         },
                         {
-                            "name": "Lansdale",
+                            "name": "Centerpoint",
                             "waterStatus": "Good - Safe to drink",
                             "description": "Areas served: Center Point Farm, Lansdale, Worcester Township Water Source: Wellwater",
                             "stats": [
@@ -317,9 +317,9 @@
                             ]
                         },
                         {
-                            "name": "Ben Salem, Langhorne, Feasterville, Trevose, Croydon",
+                            "name": "Ben Salem",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: Ben Salem Division Water Source: Delaware River and Neshaminy Creek",
+                            "description": "Areas served: Ben Salem, Langhorne, Feasterville, Trevose, Croydon Water Source: Delaware River and Neshaminy Creek",
                             "stats": [
                                 -1,
                                 -1,
@@ -334,9 +334,9 @@
                             ]
                         },
                         {
-                            "name": "New Hope",
+                            "name": "Peddler's View",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: New Hope, Peddler's View Division Water Source: Groundwater Wells",
+                            "description": "Areas served: New Hope Water Source: Groundwater Wells",
                             "stats": [
                                 -1,
                                 -1,
@@ -351,9 +351,9 @@
                             ]
                         },
                         {
-                            "name": "Feasterville, Trevose, Bensalem, Bristol, Croydon, Levittown",
+                            "name": "Bristol",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: Bristol Division Water Source: Delaware River and Wells",
+                            "description": "Areas served: Feasterville, Trevose, Bensalem, Bristol, Croydon, Levittown Water Source: Delaware River and Wells",
                             "stats": [
                                 -1,
                                 -1,
@@ -376,7 +376,7 @@
                         {
                             "name": "Honeybrook",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: UGS North Division Water Source: Groundwater Supply, Supplemented with water purchased from DWMA (Brandywine Creek, Marsh Creek Reservoir)",
+                            "description": "Areas served: Honeybrook Water Source: Groundwater Supply, Supplemented with water purchased from DWMA (Brandywine Creek, Marsh Creek Reservoir)",
                             "stats": [
                                 -1,
                                 -1,
@@ -391,9 +391,9 @@
                             ]
                         },
                         {
-                            "name": "Phoenixville",
+                            "name": "East Pikeland",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: East Pikeland, Phoenixville Water Source: Schuylkill River",
+                            "description": "Areas served: Phoenixville Water Source: Schuylkill River",
                             "stats": [
                                 -1,
                                 0.5,
@@ -408,9 +408,9 @@
                             ]
                         },
                         {
-                            "name": "Lincoln University",
+                            "name": "Franklin",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: Franklin Division Water Source: Groundwater",
+                            "description": "Areas served: Lincoln University Water Source: Groundwater",
                             "stats": [
                                 -1,
                                 -1,
@@ -425,9 +425,9 @@
                             ]
                         },
                         {
-                            "name": "West Chester, Coatesville, Downingtown",
+                            "name": "Spring Run",
                             "waterStatus": "Good - Safe to drink",
-                            "description": "Areas served: UGS South Division Water Source: Groundwater, supplemented w/ Brandywine Creek",
+                            "description": "Areas served: West Chester, Coatesville, Downingtown Water Source: Groundwater, supplemented w/ Brandywine Creek",
                             "stats": [
                                 -1,
                                 0.2,

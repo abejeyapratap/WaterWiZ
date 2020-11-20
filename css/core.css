@@ -106,3 +106,45 @@ body > footer#main-footer {
     font-size: 12px;
     font-weight: 600;
 }
+
+@media (max-width: 600px) {
+    .nav-brand {
+        display: none !important;
+    }
+}
+
+@media (max-width: 450px) {
+    #nav-logo {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .nav-group:first-child {
+        padding-left: 0 !important;
+        flex: 0 !important;
+    }
+
+    .nav-group:last-child {
+        padding-right: 0 !important;
+    }
+}
+
+[data-theme=dangerous] {
+    background-color: #C90C06;
+}
+
+[data-theme=dangerous] .tippy-arrow {
+    color: #C90C06 !important;
+}
+
+[data-theme=caution] {
+    background-color: #F59112;
+}
+
+[data-theme=caution] .tippy-arrow {
+    color: #F59112 !important;
+}

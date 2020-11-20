@@ -2,6 +2,10 @@ main#main-content {
     min-height: calc(100vw - 60px);
 }
 
+body {
+    background-color: #F1F3F7;
+}
+
 #supplier-heading {
     --spacing: 20px;
 
@@ -49,24 +53,71 @@ main#main-content {
     max-width: min(1000px, calc(100vw - 200px));
 }
 
-.system-container:not(:last-child) {
-    /* padding-bottom: 20px; */
+@media screen and (max-width: 700px) {
+    .county-container > .systems-container {
+        max-width: 100vw;
+    }
+
+    .system-container {
+        border-radius: unset !important;
+        border-left: unset !important;
+        border-right: unset !important;
+        padding: 40px 10px !important;
+    }
 }
 
 .system-container {
     display: flex;
     flex-flow: column;
+    overflow: hidden;
 
     row-gap: 20px;
 
     margin: 10px 0;
-    padding: 40px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 5px;
+
+    position: relative;
+}
+
+.chart-container {
+    position: relative;
+
+    display: flex;
+    flex-flow: column;
+
+    padding: 50px 40px 40px 40px;
+}
+
+.color-legend {
+    position: absolute;
+    top: 15px;
+    right: 40px;
+
+    display: flex;
+    flex-flow: row;
+    column-gap: 15px;
+
+    list-style: none;
+}
+
+.color-legend > .legend-item::after {
+    display: inline-block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: var(--legend-color);
+    margin-left: 5px;
 }
 
 .system-container > * {
     flex: 1;
+}
+
+.system-container > .system-info {
+    background-color: #245894;
+    color: white;
+    padding: 40px;
 }
 
 .system-name {
@@ -81,9 +132,25 @@ div[name=chart] {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 10px;
-    row-gap: 60px;
+    row-gap: 20px;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     padding-bottom: 20px;
+
+    padding: 0 40px 40px 40px;
+
+    position: relative;
+}
+
+div[name=chart] svg {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1100px) {
+    div[name=chart] {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
 }
 
 .stat-container {
@@ -92,18 +159,19 @@ div[name=chart] {
 
     align-items: center;
 
-    height: 68px;
+    height: 100%;
 
     position: relative;
 }
 
-.stat-container > .stat-name {
-    width: 130px;
-    text-align: right;
+.stat-container > .stat-info {
+    padding-bottom: 10px;
+    flex: 1;
 }
 
-.stat-container > :not(.stat-name) {
-    flex: 1;
+.stat-info > .stat-name {
+    padding-bottom: 5px;
+    text-align: center;
 }
 
 svg > g:last-child:not(:only-child) > g:only-child {

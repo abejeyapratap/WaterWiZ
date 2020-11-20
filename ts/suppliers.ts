@@ -23,6 +23,11 @@ interface SuppliersRoot {
     suppliers: Supplier[];
 }
 
+const NORMAL = "#2962A5";
+const DANGER = "#C90C06";
+const CAUTION = "#F59112";
+const SAFE = "#377E22";
+
 namespace SuppliersCore {
     export const suppliers: Record<string, Supplier> = {};
 
@@ -112,11 +117,19 @@ namespace SuppliersDOM {
                 ], { class: "water-status" })
             ], { class: "system-info" }),
             element("div", [
+                element("ul", [
+                    ["Normal", NORMAL],
+                    ["Safe", SAFE],
+                    ["Caution", CAUTION],
+                    ["Danger", DANGER]
+                ].map(([label, color]) => (
+                    element("li", label, { class: "legend-item", style: `--legend-color: ${color}` })
+                )), { class: "color-legend" }),
                 element("div", [], {
                     name: "chart",
                     ...stats.reduce((collector, stat, index) => (collector["stat-" + index] = stat.toString(), collector), {} as Record<string, string>)
                 })
-            ])
+            ], { class: "chart-container" })
         ], {
             class: "system-container"
         });
@@ -161,7 +174,7 @@ namespace SuppliersCharting {
         stats: StatisticDefinition[];
     }
 
-    let definitions: StatisticDefinition[] = [];
+    export let definitions: StatisticDefinition[] = [];
 
     export function loadStatisticDefinitions(cb?: () => void) {
         let chartsLoaded = false;
@@ -211,15 +224,23 @@ namespace SuppliersCharting {
 
             dataTable.addColumn("string", "");
             dataTable.addColumn("number", "");
+            dataTable.addColumn("number", "");
+            dataTable.addColumn("number", "");
+            dataTable.addColumn("number", "");
             dataTable.addColumn({ type: "string", role: "tooltip" });
             dataTable.addColumn({ role: "style" })
 
             if (definition.safeRange) dataTable.addRows([
-                ["Normal", definition.safeRange[1], `${definition.safeRange[1]} ${definition.unit}`, "#C90C06"],
+                ["Normal", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], `${definition.safeRange[1]} ${definition.unit}`, NORMAL],
             ]);
 
+            const isDangerous = definition.safeRange ? stat > definition.safeRange[1] : false;
+            const isWarning = definition.safeRange ? (stat + (definition.ticks[1] / 2)) >= definition.safeRange[1] : false;
+
+            const color = isDangerous ? DANGER : isWarning ? CAUTION : SAFE;
+            
             dataTable.addRows([
-                ["Actual", stat, `${stat} ${definition.unit}`, ""]
+                ["Actual", 0, 0, stat, stat, `${stat} ${definition.unit}`, color]
             ]);
 
             // const data = google.visualization.arrayToDataTable([
@@ -233,17 +254,17 @@ namespace SuppliersCharting {
                 // element("span", definition.name, { class: "stat-name" }),
                 element("div", [
                     element("h4", definition.name, { class: "stat-name" }),
-                    element("p", definition.description, { class: "stat-description" })
-                ], { class: "stat-info" })
+                    // element("p", definition.description, { class: "stat-description" })
+                ], { class: "stat-info" }),
                 chartContainer
-            ], { class: "stat-container" });
+            ], { class: "stat-container", name: `stat-${definition.name}`, ...(isDangerous ? { dangerous: "dangerous" } : isWarning ? { warning: "warning" } : {}) });
 
             chart.appendChild(container);
 
-            const gChart = new google.visualization.BarChart(chartContainer);
+            const gChart = new google.visualization.CandlestickChart(chartContainer);
             
             charts.push([gChart, [dataTable, {
-                bars: "horizontal",
+                orientation: "vertical",
                 theme: "material",
                 height: 90,
                 chartArea: {left:50, width: "100%"},
@@ -269,6 +290,8 @@ namespace SuppliersCharting {
     }
 }
 
+declare const tippy: (selector: string, options: object) => void;
+
 class SupplierPage {
     storage: Record<string, HTMLElement> = {};
 
@@ -289,6 +312,30 @@ class SupplierPage {
                 }
             });
         }
+
+        setTimeout(() => {
+            SuppliersCharting.definitions.forEach((definition, index) => {
+                const baseSelector = `[name="stat-${definition.name}"]`;
+
+                tippy(baseSelector, {
+                    content: definition.description,
+                    allowHTML: true,
+                    placement: (index % 2 === 0) ? "left" : "right"
+                })
+
+                tippy(`${baseSelector}[warning]`, {
+                    content: `This plant's ${definition.name} level is near unhealthy levels.`,
+                    theme: "caution",
+                    placement: "bottom"
+                })
+
+                tippy(`${baseSelector}[dangerous]`, {
+                    content: `This plant's ${definition.name} level exceeds FDA standards!`,
+                    theme: "dangerous",
+                    placement: "bottom"
+                })
+            })
+        }, 1000);
 
         console.log("told them to do it");
     }
