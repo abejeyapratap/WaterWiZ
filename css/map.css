@@ -52,12 +52,15 @@ body > #map-container > #map-info{
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    border-radius: 125px;
+    border-radius: 135px;
+    border-bottom: 1.5px solid black;
 
     background-color: #115A8C;
     width: 50%;
     height: 300px;
     margin-top: 150px;
+
+    transition: 0.75s ease;
 }
 
 #map-info:hover{

@@ -21,11 +21,6 @@ nav {
     align-items: center;
 }
 
-nav#main-nav {
-    background-color: #084C61;
-    height: 59px;
-}
-
 nav > .nav-group {
     display: flex;
     flex-flow: row;
@@ -89,8 +84,14 @@ nav > .nav-group > li > h1.nav-brand {
     color: white;
 }
 
-nav > .nav-group > li > h1.nav-brand > span.nav-brand-special {
-    color: #1fa1ef;
+nav#main-nav {
+    background-color: #262f31;
+    height: 59px;
+}
+
+.highlight {        /* TEMPORARY HIGHLIGHT*/
+    color: #0e84ce;
+    font-weight: bold;
 }
 
 /*
@@ -101,9 +102,9 @@ body > footer#main-footer {
     display: flex;
     flex-flow: row;
     padding: 20px 30px;
-    background-color: #4088AC;
+    background-color: #303030;
     color: white;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
 }
 
