@@ -17,7 +17,7 @@ header{
 }
 
 body {
-    background-color: #F1F3F7;
+    background-color: #98acc9;
 }
 
 header h1{
@@ -93,6 +93,7 @@ header > #descrip{
     color: white;
     flex: 1;
 
+    /*hover effects*/
     position: absolute;
     bottom: 0;
     left: 0;
@@ -148,7 +149,6 @@ header > #descrip{
         margin-left: 5px;
         max-width: 90%;
         text-align: center;
-        
     }
 
     .box img{

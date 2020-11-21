@@ -1,13 +1,13 @@
 iframe {
     height: calc(100vh - 60px);
     width: 50vw;
-    margin: 10px;
+    margin: 5px;
     border: 1.5px solid #2e72a0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 body {
-    background-color: #eaecf1;
+    background-color: #c3c7cf;
 }
 
 body > header{
@@ -30,22 +30,67 @@ body > header{
     
 }
 
+header h1{
+    font-size: 3em;
+    font-weight: 400;
+    text-align: center;
+}
+
+header > #descrip{
+    font-size: 1.25em;
+    text-align: center;
+}
+
 body > #map-container{
     display: flex;
     flex-flow: row;
-    align-items: center;
 }
 
 body > #map-container > #map-info{
+    display: flex;
+    flex-flow: column;
     justify-content: center;
-    background-color: aqua;
-    width: 30%;
-    min-height: 250px;
-    max-height: 300px;
+    align-items: center;
+    box-sizing: border-box;
+    border-radius: 125px;
+
+    background-color: #115A8C;
+    width: 50%;
+    height: 300px;
+    margin-top: 150px;
+}
+
+#map-info:hover{
+    opacity: 0.9;
 }
 
 body > #map-container > #map-info > .map-text{
     font-size: 1.25em;
     text-align: center;
     padding-top: 20px;
+    color: white;
 }
+
+img{
+    width: 20%;
+}
+
+@media(max-width: 569px) {   /*not working at the moment*/
+    body > #map-container{
+        display: none;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    body > #map-container > #map-info{
+        margin-left: 5px;
+        max-width: 90%;
+        text-align: center;
+    }
+
+    body > #map-container > #map{
+        margin-left: 5px;
+        max-width: 90%;
+        text-align: center;
+    }
+}   
