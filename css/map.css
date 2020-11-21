@@ -71,7 +71,7 @@ body > #map-container > #map-info > .map-text{
     color: white;
 }
 
-img{
+img#duplogo{
     width: 20%;
 }
 
