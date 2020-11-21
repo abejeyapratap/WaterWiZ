@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Water Wiz</title>
+    <title>Water Wiz | Map</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Philly Codefest 2020 Project on Environmental Sustainability">
@@ -16,17 +15,21 @@
 <body>
     <nav id="main-nav"></nav>
 
-    <center>
-        <br>
-        <h2 style="width: 75%;">Use this map to find the water treatment plant closest to you, then check the <a href="/suppliers/">suppliers</a> to see the plant data.</h2>
-        <br>
-        <h3 style="width: 75%;">Here you can see the locations of all the water systems in the Greater Philadelphia region. You can click on a plant to learn more about its water statistics. You can click the icon in the upper left to see a whole list of plants listed by supplier.
-        </h3>
-        <br>
-        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1aVmmwjOIB_vwfSjx2UpT9wZw5vNbTWG8" width="75%" style="height: 600px"></iframe>
-        <br>
-    </center>
+    <header>
+        <h1>WaterWiZ Map</h1>
+    </header>
 
+    <section id="map-container">
+        <div id="map">
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1aVmmwjOIB_vwfSjx2UpT9wZw5vNbTWG8" 
+            width="75%" style="height: 600px"></iframe>
+        </div>
+        <div id="map-info">
+            <p class="map-text">Here you can see the locations of all the water systems in the Greater Philadelphia region.</p>
+            <p class="map-text">Click on your local water system to see what's in your water!.</p>
+            <p class="map-text">Click the icon in the upper left to see the list of water systems organized by supplier.</p>
+        </div>
+    </section>
 
     <footer id="main-footer"></footer>
 

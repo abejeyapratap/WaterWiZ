@@ -1,3 +1,51 @@
 iframe {
     height: calc(100vh - 60px);
+    width: 50vw;
+    margin: 10px;
+    border: 1.5px solid #2e72a0;
+    border-radius: 5px;
+}
+
+body {
+    background-color: #eaecf1;
+}
+
+body > header{
+    text-align: center;
+    width: 100vw;
+    height: 400px;
+    /**
+    background: url("/img/suppback2.jpg");
+    background-size: cover;
+    background-position: center;
+    **/
+    background: url("https://www.greenbiz.com/sites/default/files/images/articles/featured/shutterstock1109708624.jpg") no-repeat center;
+    background-size: cover;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border-bottom: 2px solid black;
+    
+}
+
+body > #map-container{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+body > #map-container > #map-info{
+    justify-content: center;
+    background-color: aqua;
+    width: 30%;
+    min-height: 250px;
+    max-height: 300px;
+}
+
+body > #map-container > #map-info > .map-text{
+    font-size: 1.25em;
+    text-align: center;
+    padding-top: 20px;
 }
