@@ -16,6 +16,7 @@ header{
     justify-content: center;
     color: #ffffff;
     border-bottom: 2px solid black;
+    -webkit-text-stroke: 2px black;
 }
 
 body {
@@ -147,3 +148,42 @@ table {
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  #supplier-box {
+    display: flex;
+    flex-flow: row;
+    justify-content: left;
+    align-items: left;
+    box-sizing: border-box;
+    border-radius: 15px;
+    border-bottom: 1.5px solid gray;
+
+    width: 70%;
+    height: 150px;
+    margin-top: 5px;
+    margin-left: 15%;
+    margin-right: 15%;
+
+    transition: 0.75s ease;
+}
+
+img#duplogo{
+    width: 140px;
+    height: 140px;
+    float: left;
+    margin: 5px 15px 5px 5px;
+    border-radius: 15px;
+}
+
+.sup-text{
+    font-size: 1.5em;
+    text-align: left;
+    padding-top: 5px;
+    color: rgb(0 22 103);
+    float: left;
+}
+
+.sup-text a{
+    color: rgb(0 22 103);
+    text-decoration: underline;
+}
