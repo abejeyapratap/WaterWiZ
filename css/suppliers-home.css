@@ -81,8 +81,11 @@ header > #descrip{
     flex-flow: column;
 
     row-gap: 10px;
-    padding: 10px;
+    padding-right: 10px;
 
+    padding-top: 10px;  /*added only to display blue bottom*/
+    padding-bottom: 10px;
+    
     /** #2e72a0 **/
     /** #036eb7 **/
     /** #115a8c **/
@@ -94,9 +97,10 @@ header > #descrip{
     bottom: 0;
     left: 0;
     right: 0;
-    transition: 0.5s ease;
+    transition: 0.75s ease;
     height: 0;
     width: 100%;
+    /*justify-content: center;*/
 }
 
 .box:hover .supplier-info{
@@ -114,19 +118,16 @@ header > #descrip{
 } */
 
 .supplier-info > h3.supplier-name{
-    font-size: 1.25em;
-    margin: 10px 0 5px 0;
+    font-size: 1.5em;
+    margin: 50px 0 5px 0;
 }
 
 .supplier-info > .overlay-text > p {
-    margin: 5px 0;
+    margin: 15px 10px;
 }
 
 .supplier-info > .overlay-text > ul {
     margin: 5px 0 10px 0;
-}
-
-ul { 
     list-style-type: none;
 }
 
