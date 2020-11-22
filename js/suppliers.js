@@ -10,10 +10,16 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var NORMAL = "#2962A5";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+var NORMAL = "#377E22";
 var DANGER = "#C90C06";
-var CAUTION = "#F59112";
-var SAFE = "#377E22";
+var SAFE = "#2962A5";
 var SuppliersCore;
 (function (SuppliersCore) {
     SuppliersCore.suppliers = {};
@@ -85,20 +91,19 @@ var SuppliersDOM;
     }
     SuppliersDOM.element = element;
     function makeHeading(_a) {
-        var name = _a.name, id = _a.id;
+        var name = _a.name, logo = _a.logo, id = _a.id;
         return element("div", [
-            element("h1", name, { id: id }),
-            element("hr")
+            logo ? element("img", [], { id: id, src: logo }) : element("h1", name, { id: id })
         ], {
             id: "supplier-heading"
         });
     }
     SuppliersDOM.makeHeading = makeHeading;
     function makeSystem(_a) {
-        var name = _a.name, waterStatus = _a.waterStatus, description = _a.description, stats = _a.stats;
-        return element("div", [
+        var name = _a.name, reportLink = _a.reportLink, waterStatus = _a.waterStatus, description = _a.description, stats = _a.stats;
+        return element("div", __spreadArrays([
             element("div", [
-                element("h3", name, { class: "system-name" }),
+                element("h3", name, { class: "system-image" }),
                 element("p", { html: description, tag: "div" }, { class: "system-description" }),
                 element("p", [
                     element("strong", "Water Status: "),
@@ -107,17 +112,18 @@ var SuppliersDOM;
             ], { class: "system-info" }),
             element("div", [
                 element("ul", [
-                    ["Normal", NORMAL],
+                    ["Ideal", NORMAL],
                     ["Safe", SAFE],
-                    ["Caution", CAUTION],
-                    ["Danger", DANGER]
+                    ["Critical", DANGER]
                 ].map(function (_a) {
                     var label = _a[0], color = _a[1];
                     return (element("li", label, { class: "legend-item", style: "--legend-color: " + color }));
                 }), { class: "color-legend" }),
                 element("div", [], __assign({ name: "chart" }, stats.reduce(function (collector, stat, index) { return (collector["stat-" + index] = stat.toString(), collector); }, {})))
             ], { class: "chart-container" })
-        ], {
+        ], reportLink ? [element("div", [
+                element("a", "Click here to see the detailed water quality report", { href: reportLink })
+            ], { class: "source-container" })] : []), {
             class: "system-container"
         });
     }
@@ -200,11 +206,10 @@ var SuppliersCharting;
             dataTable.addColumn({ role: "style" });
             if (definition.safeRange)
                 dataTable.addRows([
-                    ["Normal", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], definition.safeRange[1] + " " + definition.unit, NORMAL],
+                    ["Ideal", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], definition.safeRange[0] + " - " + definition.safeRange[1] + " " + definition.unit, NORMAL],
                 ]);
             var isDangerous = definition.safeRange ? stat > definition.safeRange[1] : false;
-            var isWarning = definition.safeRange ? (stat + (definition.ticks[1] / 2)) >= definition.safeRange[1] : false;
-            var color = isDangerous ? DANGER : isWarning ? CAUTION : SAFE;
+            var color = isDangerous ? DANGER : SAFE;
             dataTable.addRows([
                 ["Actual", 0, 0, stat, stat, stat + " " + definition.unit, color]
             ]);
@@ -219,14 +224,13 @@ var SuppliersCharting;
                     element("h4", definition.name, { class: "stat-name" }),
                 ], { class: "stat-info" }),
                 chartContainer
-            ], __assign({ class: "stat-container", name: "stat-" + definition.name }, (isDangerous ? { dangerous: "dangerous" } : isWarning ? { warning: "warning" } : {})));
+            ], __assign({ class: "stat-container", name: "stat-" + definition.name }, (isDangerous ? { dangerous: "dangerous" } : {})));
             chart.appendChild(container);
             var gChart = new google.visualization.CandlestickChart(chartContainer);
             charts.push([gChart, [dataTable, {
                         orientation: "vertical",
                         theme: "material",
                         height: 90,
-                        chartArea: { left: 50, width: "100%" },
                         legend: {
                             position: "none"
                         },
@@ -259,33 +263,55 @@ var SupplierPage = /** @class */ (function () {
         this.main.appendChild(SuppliersDOM.makeCounties(this.supplier.counties));
         var charts = this.main.querySelectorAll("[name=chart]");
         var chartPartials = Array.prototype.map.call(charts, function (chart) { return SuppliersCharting.setupChart(chart); });
-        var _loop_1 = function (someCharts) {
-            requestAnimationFrame(function () {
-                for (var _i = 0, someCharts_1 = someCharts; _i < someCharts_1.length; _i++) {
-                    var _a = someCharts_1[_i], chart = _a[0], _b = _a[1], opt1 = _b[0], opt2 = _b[1];
-                    chart.draw(opt1, opt2);
+        var adjustWidth = function () {
+            var newWidth;
+            var vw = $(window).width();
+            if (vw < 1000) {
+                if (vw < 700) {
+                    newWidth = vw - 100;
                 }
-            });
+                else {
+                    newWidth = vw - 300;
+                }
+            }
+            else {
+                newWidth = (vw / 2) - 200;
+            }
+            console.log(newWidth);
+            chartPartials.forEach(function (charts) { return charts.forEach(function (opts) { return opts[1][1].width = newWidth; }); });
         };
-        for (var _i = 0, chartPartials_1 = chartPartials; _i < chartPartials_1.length; _i++) {
-            var someCharts = chartPartials_1[_i];
-            _loop_1(someCharts);
-        }
+        var pendingResize;
+        var draw = function () {
+            adjustWidth();
+            var _loop_1 = function (someCharts) {
+                requestAnimationFrame(function () {
+                    for (var _i = 0, someCharts_1 = someCharts; _i < someCharts_1.length; _i++) {
+                        var _a = someCharts_1[_i], chart = _a[0], _b = _a[1], opt1 = _b[0], opt2 = _b[1];
+                        chart.draw(opt1, opt2);
+                    }
+                });
+            };
+            for (var _i = 0, chartPartials_1 = chartPartials; _i < chartPartials_1.length; _i++) {
+                var someCharts = chartPartials_1[_i];
+                _loop_1(someCharts);
+            }
+            pendingResize = undefined;
+        };
+        draw();
+        $(window).on("resize", function () {
+            if (!pendingResize)
+                setTimeout(draw, 100);
+        });
         setTimeout(function () {
             SuppliersCharting.definitions.forEach(function (definition, index) {
                 var baseSelector = "[name=\"stat-" + definition.name + "\"]";
-                tippy(baseSelector, {
+                tippy(baseSelector + " > div:not(.stat-info)", {
                     content: definition.description,
                     allowHTML: true,
                     placement: (index % 2 === 0) ? "left" : "right"
                 });
-                tippy(baseSelector + "[warning]", {
-                    content: "This plant's " + definition.name + " level is near unhealthy levels.",
-                    theme: "caution",
-                    placement: "bottom"
-                });
                 tippy(baseSelector + "[dangerous]", {
-                    content: "This plant's " + definition.name + " level exceeds FDA standards!",
+                    content: "This plant's " + definition.name + " level exceeds EPA standards!",
                     theme: "dangerous",
                     placement: "bottom"
                 });

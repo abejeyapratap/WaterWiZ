@@ -1,7 +1,4 @@
 iframe {
-    height: calc(100vh - 60px);
-    width: 50vw;
-    margin: 5px;
     border: 1.5px solid #2e72a0;
     border-radius: 10px;
 }
@@ -19,7 +16,7 @@ body > header{
     background-size: cover;
     background-position: center;
     **/
-    background: url("https://www.greenbiz.com/sites/default/files/images/articles/featured/shutterstock1109708624.jpg") no-repeat center;
+    background: url("/img/suppback3.jpg") no-repeat center;
     background-size: cover;
     display: flex;
     flex-flow: column;
@@ -42,8 +39,13 @@ header > #descrip{
 }
 
 body > #map-container{
+    --spacing: 10px;
+
     display: flex;
     flex-flow: row;
+
+    padding: var(--spacing);
+    column-gap: var(--spacing);
 }
 
 body > #map-container > #map-info{
@@ -52,49 +54,67 @@ body > #map-container > #map-info{
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+
+    row-gap: 20px;
+
     border-radius: 15px;
     border-bottom: 1.5px solid black;
 
     background-color: #115A8C;
-    width: 50%;
+    flex: 0.5;
+    padding: 20px;
+    
     height: 600px;
-    margin-top: 5px;
-    margin-left: 5px;
 
     transition: 0.75s ease;
+}
+
+body > #map-container > #map {
+    flex: 1;
+}
+
+#map > iframe {
+    width: 100%;
+    height: 100%;
 }
 
 #map-info:hover{
     opacity: 0.9;
 }
 
-body > #map-container > #map-info > .map-text{
-    font-size: 1.5em;
+#map-info > .map-text{
+    font-size: 1em;
     text-align: center;
-    padding-top: 20px;
     color: white;
 }
 
-img#duplogo{
-    width: 20%;
+.map-text.map-text-lg {
+    font-size: 1.5em !important;
 }
 
-@media(max-width: 569px) {   /*not working at the moment*/
+img#duplogo{
+    width: 100%;
+}
+
+@media(max-width: 569px) {   
     body > #map-container{
-        display: none;
         flex-flow: column;
         align-items: center;
+
+        column-gap: unset;
+        row-gap: var(--spacing);
     }
 
     body > #map-container > #map-info{
-        margin-left: 5px;
-        max-width: 90%;
         text-align: center;
     }
 
     body > #map-container > #map{
-        margin-left: 5px;
-        max-width: 90%;
         text-align: center;
+        width: 100%;
+    }
+
+    #map > iframe {
+        min-height: 500px;
     }
 }   

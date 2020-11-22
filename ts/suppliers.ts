@@ -4,6 +4,7 @@ interface WaterSystem {
     name: string;
     waterStatus: string;
     description: string;
+    reportLink?: string;
     stats: number[];
 }
 
@@ -15,6 +16,7 @@ interface County {
 
 interface Supplier {
     id: string;
+    logo: string;
     name: string;
     counties: County[];
 }
@@ -23,10 +25,9 @@ interface SuppliersRoot {
     suppliers: Supplier[];
 }
 
-const NORMAL = "#2962A5";
+const NORMAL = "#377E22";
 const DANGER = "#C90C06";
-const CAUTION = "#F59112";
-const SAFE = "#377E22";
+const SAFE = "#2962A5";
 
 namespace SuppliersCore {
     export const suppliers: Record<string, Supplier> = {};
@@ -97,19 +98,18 @@ namespace SuppliersDOM {
         return element;
     }
 
-    export function makeHeading({ name, id }: Supplier): HTMLElement {
+    export function makeHeading({ name, logo, id }: Supplier): HTMLElement {
         return element("div", [
-            element("h1", name, { id }),
-            element("hr")
+            logo ? element("img", [], { id, src: logo }) : element("h1", name, { id})
         ], {
             id: "supplier-heading"
         });
     }
 
-    export function makeSystem({ name, waterStatus, description, stats }: WaterSystem): HTMLElement {
+    export function makeSystem({ name, reportLink, waterStatus, description, stats }: WaterSystem): HTMLElement {
         return element("div", [
             element("div", [
-                element("h3", name, { class: "system-name" }),
+                element("h3", name, { class: "system-image" }),
                 element("p", { html: description, tag: "div" }, { class: "system-description" }),
                 element("p", [
                     element("strong", "Water Status: "),
@@ -118,10 +118,9 @@ namespace SuppliersDOM {
             ], { class: "system-info" }),
             element("div", [
                 element("ul", [
-                    ["Normal", NORMAL],
+                    ["Ideal", NORMAL],
                     ["Safe", SAFE],
-                    ["Caution", CAUTION],
-                    ["Danger", DANGER]
+                    ["Critical", DANGER]
                 ].map(([label, color]) => (
                     element("li", label, { class: "legend-item", style: `--legend-color: ${color}` })
                 )), { class: "color-legend" }),
@@ -129,7 +128,10 @@ namespace SuppliersDOM {
                     name: "chart",
                     ...stats.reduce((collector, stat, index) => (collector["stat-" + index] = stat.toString(), collector), {} as Record<string, string>)
                 })
-            ], { class: "chart-container" })
+            ], { class: "chart-container" }),
+            ...reportLink ? [element("div", [
+                element("a", "Click here to see the detailed water quality report", { href: reportLink })
+            ], { class: "source-container" })] : []
         ], {
             class: "system-container"
         });
@@ -231,13 +233,12 @@ namespace SuppliersCharting {
             dataTable.addColumn({ role: "style" })
 
             if (definition.safeRange) dataTable.addRows([
-                ["Normal", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], `${definition.safeRange[1]} ${definition.unit}`, NORMAL],
+                ["Ideal", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], `${definition.safeRange[0]} - ${definition.safeRange[1]} ${definition.unit}`, NORMAL],
             ]);
 
             const isDangerous = definition.safeRange ? stat > definition.safeRange[1] : false;
-            const isWarning = definition.safeRange ? (stat + (definition.ticks[1] / 2)) >= definition.safeRange[1] : false;
 
-            const color = isDangerous ? DANGER : isWarning ? CAUTION : SAFE;
+            const color = isDangerous ? DANGER : SAFE;
             
             dataTable.addRows([
                 ["Actual", 0, 0, stat, stat, `${stat} ${definition.unit}`, color]
@@ -257,7 +258,7 @@ namespace SuppliersCharting {
                     // element("p", definition.description, { class: "stat-description" })
                 ], { class: "stat-info" }),
                 chartContainer
-            ], { class: "stat-container", name: `stat-${definition.name}`, ...(isDangerous ? { dangerous: "dangerous" } : isWarning ? { warning: "warning" } : {}) });
+            ], { class: "stat-container", name: `stat-${definition.name}`, ...(isDangerous ? { dangerous: "dangerous" } : {}) });
 
             chart.appendChild(container);
 
@@ -267,7 +268,6 @@ namespace SuppliersCharting {
                 orientation: "vertical",
                 theme: "material",
                 height: 90,
-                chartArea: {left:50, width: "100%"},
                 legend: {
                     position: "none"
                 },
@@ -305,32 +305,59 @@ class SupplierPage {
 
         const chartPartials = Array.prototype.map.call(charts, chart => SuppliersCharting.setupChart(chart as HTMLElement)) as [any, any[]][];
 
-        for (let someCharts of chartPartials) {
-            requestAnimationFrame(function() {
-                for (let [chart, [opt1, opt2]] of someCharts) {
-                    chart.draw(opt1, opt2);
+        const adjustWidth = function() {
+            var newWidth: number;
+            const vw = $(window).width()!;
+
+            if (vw < 1000) {
+                if (vw < 700) {
+                    newWidth = vw - 100;
+                } else {
+                    newWidth = vw - 300;
                 }
-            });
+            } else {
+                newWidth = (vw / 2) - 200;
+            }
+
+            console.log(newWidth);
+
+            chartPartials.forEach((charts) => charts.forEach(opts => opts[1][1].width = newWidth));
         }
+        var pendingResize: number;
+
+        const draw = function() {
+            adjustWidth();
+
+            for (let someCharts of chartPartials) {
+                requestAnimationFrame(function() {
+                    for (let [chart, [opt1, opt2]] of someCharts) {
+                        chart.draw(opt1, opt2);
+                    }
+                });
+            }
+
+            pendingResize = undefined!;
+        }
+
+        draw();
+
+        $(window).on("resize", function() {
+            if (!pendingResize) setTimeout(draw, 100);
+        });
+        
 
         setTimeout(() => {
             SuppliersCharting.definitions.forEach((definition, index) => {
                 const baseSelector = `[name="stat-${definition.name}"]`;
 
-                tippy(baseSelector, {
+                tippy(`${baseSelector} > div:not(.stat-info)`, {
                     content: definition.description,
                     allowHTML: true,
                     placement: (index % 2 === 0) ? "left" : "right"
                 })
 
-                tippy(`${baseSelector}[warning]`, {
-                    content: `This plant's ${definition.name} level is near unhealthy levels.`,
-                    theme: "caution",
-                    placement: "bottom"
-                })
-
                 tippy(`${baseSelector}[dangerous]`, {
-                    content: `This plant's ${definition.name} level exceeds FDA standards!`,
+                    content: `This plant's ${definition.name} level exceeds EPA standards!`,
                     theme: "dangerous",
                     placement: "bottom"
                 })

@@ -45,7 +45,7 @@
     flex-flow: column;
     
     padding: 20px 40px;
-    max-width: min(1000px, calc(100vw - 300px));
+    max-width: calc(100vw - 300px);
     min-height: 50vh;
 
     margin: 0 auto;
@@ -66,6 +66,27 @@
     font-size: var(--home-font-size);
 
     font-weight: 500;
+}
+
+main {
+    display: flex;
+    flex-flow: row;
+    column-gap: 10px;
+    height: 200px;
+}
+
+main > .side-content {
+    flex: 0.75;
+}
+
+main > .home-paragraph {
+    flex: 1;
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        flex-flow: column;
+    }
 }
 
 /**

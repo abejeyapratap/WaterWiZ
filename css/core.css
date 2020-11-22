@@ -108,13 +108,13 @@ body > footer#main-footer {
     font-weight: 600;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
     .nav-brand {
         display: none !important;
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 550px) {
     #nav-logo {
         display: none !important;
         visibility: hidden !important;

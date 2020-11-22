@@ -98,7 +98,7 @@ header > #descrip{
     bottom: 0;
     left: 0;
     right: 0;
-    transition: 0.75s ease;
+    transition: 0.75s ease height;
     height: 0;
     width: 100%;
     /*justify-content: center;*/
