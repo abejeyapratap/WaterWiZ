@@ -26,6 +26,7 @@ header h1{
     font-size: 4em;
     font-weight: 400;
     text-align: center;
+    padding-bottom: 15px;
 }
 
 header > #descrip{
@@ -62,7 +63,7 @@ header > #descrip{
     color: black;
     max-width: 300px;
 
-    height: 550px;
+    height: 475px;
 
     border: 1px solid #2e72a0;
 }
@@ -307,3 +308,6 @@ img#duplogo{
     text-decoration: underline;
 }
 
+.supplier-info a {
+    color: white;
+}

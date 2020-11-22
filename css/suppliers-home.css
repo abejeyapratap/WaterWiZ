@@ -24,6 +24,7 @@ header h1{
     font-size: 4em;
     font-weight: 400;
     text-align: center;
+    padding-bottom: 15px;
 }
 
 header > #descrip{
