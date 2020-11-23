@@ -1,7 +1,7 @@
 $(function() {
     $('.carousel').slick({
         autoplay: true,
-        autoplaySpeed: 7500,
+        autoplaySpeed: 5000,
         slidesToScroll: 1
     });
 });
