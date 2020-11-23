@@ -1,6 +1,7 @@
 header {
     width: 100vw;
-    height: 335px;
+    min-height: 325px;
+    max-height: 335px;
     /**
     background: url("/img/suppback2.jpg");
     background-size: cover;
