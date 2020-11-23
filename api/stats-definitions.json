@@ -25,7 +25,7 @@
         },
         {
             "name": "Fluoride",
-            "description": "in amounts less than 2 ppm, Fluoride protects your teeth against cavities and prevents tooth decay. A higher amount of fluoride can cause enamel fluorosis (severe teeth staining).",
+            "description": "In amounts less than 2 ppm, Fluoride protects your teeth against cavities and prevents tooth decay. A higher amount of fluoride can cause enamel fluorosis (severe teeth staining).",
             "safeRange": [
                 0,
                 2
@@ -46,7 +46,7 @@
         },
         {
             "name": "Hardness",
-            "description": "measures the amount of Calcium and Magnesium in your water. Your water is hard if it’s above 120 ppm and soft if it’s below 120 ppm.",
+            "description": "Measures the amount of Calcium and Magnesium in your water. Your water is hard if it’s above 120 ppm and soft if it’s below 120 ppm.",
             "safeRange": [
                 0,
                 175
@@ -70,7 +70,7 @@
         },
         {
             "name": "Turbidity",
-            "description": "measures the clarity of your water. Clear water has low turbidity and cloudy/murky water has a higher turbidity level.",
+            "description": "Measures the clarity of your water. Clear water has low turbidity and cloudy/murky water has a higher turbidity level.",
             "safeRange": [
                 0,
                 0.3
@@ -91,7 +91,7 @@
         },
         {
             "name": "Chlorine",
-            "description": "a disinfectant used to protect your water against waterborne diseases. Your water should have between 2 ppm and 4 ppm of chlorine to ensure that it is safe to drink.",
+            "description": "A disinfectant used to protect your water against waterborne diseases. Your water should have between 2 ppm and 4 ppm of chlorine to ensure that it is safe to drink.",
             "safeRange": [
                 2,
                 4
@@ -112,7 +112,7 @@
         },
         {
             "name": "Lead",
-            "description": "a very toxic metal that can cause severe health problems like brain and kidney damage. Lead contamination is usually caused by pipe corrosion. If your water has more than 15 ppb of lead, it is NOT safe to drink!",
+            "description": "A very toxic metal that can cause severe health problems like brain and kidney damage. Lead contamination is usually caused by pipe corrosion. If your water has more than 15 ppb of lead, it is NOT safe to drink!",
             "safeRange": [
                 0,
                 15
@@ -133,7 +133,7 @@
         },
         {
             "name": "Copper",
-            "description": "a very toxic metal that can cause severe health problems like liver and kidney disease. Copper contamination is usually caused by pipe corrosion. If your water has more than 1.3 ppm of copper, it will taste metallic and it is NOT safe to drink!",
+            "description": "A very toxic metal that can cause severe health problems like liver and kidney disease. Copper contamination is usually caused by pipe corrosion. If your water has more than 1.3 ppm of copper, it will taste metallic and it is NOT safe to drink!",
             "safeRange": [
                 0,
                 1.3
@@ -154,7 +154,7 @@
         },
         {
             "name": "Trihalomethanes",
-            "description": "measures the amount of disinfectant by-products in your water. At levels above 80 ppb, Trihalomethanes can be carcinogenic and also affect pregnant women.",
+            "description": "Measures the amount of disinfectant by-products in your water. At levels above 80 ppb, Trihalomethanes can be carcinogenic and also affect pregnant women.",
             "safeRange": [
                 0,
                 80
@@ -175,7 +175,7 @@
         },
         {
             "name": "Sodium",
-            "description": "measures the amount of disinfectant by-products in your water. At levels above 80 ppb, Trihalomethanes can be carcinogenic and also affect pregnant women.",
+            "description": "Measures the amount of disinfectant by-products in your water. At levels above 80 ppb, Trihalomethanes can be carcinogenic and also affect pregnant women.",
             "safeRange": [
                 0,
                 30
@@ -197,7 +197,7 @@
         },
         {
             "name": "Nitrates",
-            "description": "measures the amount of nitrogen-based compounds in your water. Nitrate levels greater than 10 ppm can be harmful for pregnant women and babies.",
+            "description": "Measures the amount of nitrogen-based compounds in your water. Nitrate levels greater than 10 ppm can be harmful for pregnant women and babies.",
             "safeRange": [
                 0,
                 10
