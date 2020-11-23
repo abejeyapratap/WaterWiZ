@@ -37,7 +37,7 @@ header > #descrip{
     font-size: 1.25em;
     text-align: center;
     padding: 20px;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 body > #map-container{
