@@ -3,7 +3,7 @@ body {
 }
 
 #box-icons {
-    margin: 20px;
+    margin: 0 20px 20px 20px !important;
     display: flex;
     flex-flow: row wrap;
     flex-direction: row;
@@ -11,7 +11,7 @@ body {
     position: relative;
 }
 
-p#descriptext{
+p#descriptext {
     font-size: 1.35em;
     margin-top: 55px;
 }

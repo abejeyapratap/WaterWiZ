@@ -1,6 +1,8 @@
 /*
  * Jumbotron
  */
+
+
 /*          OLD CODE
 .landing-container {
     height: calc(50vh - 59px);
@@ -35,41 +37,36 @@
     font-weight: 400;
     z-index: 1;
 }
-*/ 
+*/
+
 
 /*
  * Main content
  */
 
- body {
+body {
     background-color: #a1b1c0;
 }
 
 #home-content {
     display: flex;
     flex-flow: column;
-    
     padding: 20px 40px;
     max-width: calc(100vw - 300px);
     min-height: 50vh;
-
     margin: 0 auto;
 }
 
-#home-content > header {
+#home-content>header {
     text-align: center;
-    
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
 
-#home-content > header > h1.home-title {
+#home-content>header>h1.home-title {
     --home-font-size: 2em;
-
     font-size: var(--home-font-size);
-
     font-weight: 500;
 }
 
@@ -81,14 +78,14 @@ main {
     height: 500px;
 }
 
-main > .side-content {
+main>.side-content {
     position: relative;
     margin-right: var(--spacing);
     background-position: center;
     background-size: cover;
 }
 
-main > .side-content::after {
+main>.side-content::after {
     display: block;
     position: absolute;
     top: 5%;
@@ -96,33 +93,30 @@ main > .side-content::after {
     height: 90%;
     width: 1px;
     content: '';
-
     border-right: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-main > .home-paragraph {
+main>.home-paragraph {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 15px;
-    background-color: #115A8C;              /*color of text box*/
+    background-color: #115A8C;
+    /*color of text box*/
     color: white;
-
     display: flex;
-    
     text-align: center;
     font-size: 24px;
-
     align-items: center;
     justify-content: center;
 }
 
-main > .side-content {
+main>.side-content {
     flex: 1;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
-main > .home-paragraph {
+main>.home-paragraph {
     flex: 1;
 }
 
@@ -131,6 +125,7 @@ main > .home-paragraph {
         flex-flow: column;
     }
 }
+
 
 /**
  * Carousel
@@ -141,49 +136,41 @@ main > .home-paragraph {
     flex-flow: row;
     align-items: center;
     justify-content: center;
-
     height: 50vw;
     max-height: 400px;
     min-height: 250px;
-
     position: relative;
 }
 
-.carousel > .slick-list {
+.carousel>.slick-list {
     flex: 1;
     height: 100%;
 }
 
-.carousel > .slick-list > .slick-track, .carousel > .slick-list > .slick-track > * {
+.carousel>.slick-list>.slick-track,
+.carousel>.slick-list>.slick-track>* {
     height: 100%;
 }
 
-.carousel > .slick-arrow {
+.carousel>.slick-arrow {
     --inset: 10px;
-
     position: absolute;
     width: 25px;
     height: 25px;
-
     font-size: 0;
-
     border: 0;
     border-radius: 50%;
-
     z-index: 100;
-
     cursor: pointer;
-
     margin-top: -3px;
-
     background: none;
 }
 
-.carousel > .slick-arrow:focus {
+.carousel>.slick-arrow:focus {
     outline: none;
 }
 
-.carousel > .slick-arrow::before {
+.carousel>.slick-arrow::before {
     display: block;
     font-size: 80px;
     color: white;
@@ -191,24 +178,24 @@ main > .home-paragraph {
     text-shadow: 0 0 7px black;
 }
 
-.carousel > .slick-prev {
+.carousel>.slick-prev {
     left: var(--inset);
 }
 
-.carousel > .slick-prev::before {
+.carousel>.slick-prev::before {
     content: '\2039';
 }
 
-.carousel > .slick-next {
+.carousel>.slick-next {
     right: var(--inset);
 }
 
-.carousel > .slick-next::before {
+.carousel>.slick-next::before {
     content: '\203A';
     margin-right: -2px;
 }
 
-.slick-track > .carousel-img {
+.slick-track>.carousel-img {
     background-image: var(--background);
     background-size: cover;
     background-position: center;
@@ -219,7 +206,7 @@ main > .home-paragraph {
     align-items: center !important;
 }
 
-.carousel-img > .carousel-text {
+.carousel-img>.carousel-text {
     font-size: 42px;
     color: white;
     font-weight: 500;
@@ -248,7 +235,6 @@ main > .home-paragraph {
     #home-content {
         max-width: calc(100vw - 100px);
     }
-
     .carousel-text {
         max-width: 80vw;
         font-size: 32px !important;
