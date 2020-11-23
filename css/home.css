@@ -240,3 +240,7 @@ main>.home-paragraph {
         font-size: 32px !important;
     }
 }
+
+.paragraph-container a {
+    color: white !important;
+}
