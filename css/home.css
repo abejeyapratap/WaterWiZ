@@ -143,8 +143,8 @@ main > .home-paragraph {
     justify-content: center;
 
     height: 50vw;
-    max-height: 400px;
-    min-height: 250px;
+    max-height: 500px;
+    min-height: 350px;
 
     position: relative;
 }
