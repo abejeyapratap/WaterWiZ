@@ -1,4 +1,7 @@
 $(function() {
-    $('.carousel').slick();
-    console.log("fca");
+    $('.carousel').slick({
+        autoplay: true,
+        autoplaySpeed: 7500,
+        slidesToScroll: 1
+    });
 });
