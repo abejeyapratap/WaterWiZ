@@ -236,3 +236,15 @@ img#duplogo {
 .supplier-info a {
     color: white;
 }
+
+body > #vid {
+    display: flex;
+    justify-content: center;
+}
+
+body > #vid > #vid-text > a{
+    text-decoration: underline;
+    font-size: 1.25em;
+    color:#115A8C !important;
+    text-align: center;
+}
