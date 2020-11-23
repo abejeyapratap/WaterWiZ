@@ -89,7 +89,7 @@ ul {
 
 header {
     width: 100vw;
-    height: 450px;
+    height: 400px;
     background: url("/img/contact.jpg") no-repeat center;
     background-size: cover;
     display: flex;
