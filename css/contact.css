@@ -11,6 +11,11 @@ body {
     position: relative;
 }
 
+p#descriptext{
+    font-size: 1.35em;
+    margin-top: 55px;
+}
+
 #box-icons>.box {
     margin: 10px;
     flex: 1;
