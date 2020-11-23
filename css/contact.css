@@ -239,7 +239,9 @@ img#duplogo {
 
 body > #vid {
     display: flex;
+    flex-flow: row;
     justify-content: center;
+    text-align: center;
 }
 
 body > #vid > #vid-text > a{
