@@ -10,7 +10,7 @@ body {
 body > header{
     text-align: center;
     width: 100vw;
-    height: 400px;
+    height: 200px;
     /**
     background: url("/img/suppback2.jpg");
     background-size: cover;
@@ -36,6 +36,8 @@ header h1{
 header > #descrip{
     font-size: 1.25em;
     text-align: center;
+    padding: 20px;
+    overflow: scroll;
 }
 
 body > #map-container{
@@ -48,34 +50,24 @@ body > #map-container{
     column-gap: var(--spacing);
 }
 
-body > #map-container > #map-info{
+body {
     display: flex;
     flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-
-    row-gap: 20px;
-
-    border-radius: 15px;
-    border-bottom: 1.5px solid black;
-
-    background-color: #115A8C;
-    flex: 0.5;
-    padding: 20px;
-    
-    height: 600px;
-
-    transition: 0.75s ease;
+    min-height: 100vh;
 }
 
-body > #map-container > #map {
+#map {              /*map size*/
     flex: 1;
+    display: flex;
+    flex-flow: column;
+    min-height: 450px;
+    padding: 10px;
 }
 
 #map > iframe {
     width: 100%;
     height: 100%;
+    flex: 1;
 }
 
 #map-info:hover{

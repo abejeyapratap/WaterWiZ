@@ -100,16 +100,25 @@ var SuppliersDOM;
     }
     SuppliersDOM.makeHeading = makeHeading;
     function makeSystem(_a) {
-        var name = _a.name, reportLink = _a.reportLink, waterStatus = _a.waterStatus, description = _a.description, stats = _a.stats;
+        var name = _a.name, reportLink = _a.reportLink, waterStatus = _a.waterStatus, waterSource = _a.waterSource, description = _a.description, stats = _a.stats;
         return element("div", __spreadArrays([
-            element("div", [
-                element("h3", name, { class: "system-image" }),
-                element("p", { html: description, tag: "div" }, { class: "system-description" }),
+            element("div", __spreadArrays([
+                element("h3", name, { class: "system-name", id: name.toLowerCase().split(" ").join("-") }),
+                element("p", [
+                    element("strong", "Areas Served: "),
+                    description
+                ], { class: "system-description" })
+            ], (waterSource ? [
+                element("p", [
+                    element("strong", "Water Source: "),
+                    waterSource
+                ], { class: "water-source" })
+            ] : []), [
                 element("p", [
                     element("strong", "Water Status: "),
                     waterStatus
                 ], { class: "water-status" })
-            ], { class: "system-info" }),
+            ]), { class: "system-info" }),
             element("div", [
                 element("ul", [
                     ["Ideal", NORMAL],
@@ -122,6 +131,7 @@ var SuppliersDOM;
                 element("div", [], __assign({ name: "chart" }, stats.reduce(function (collector, stat, index) { return (collector["stat-" + index] = stat.toString(), collector); }, {})))
             ], { class: "chart-container" })
         ], reportLink ? [element("div", [
+                element("p", "EPA: Environmental Protection Agency"),
                 element("a", "Click here to see the detailed water quality report", { href: reportLink })
             ], { class: "source-container" })] : []), {
             class: "system-container"
@@ -206,9 +216,9 @@ var SuppliersCharting;
             dataTable.addColumn({ role: "style" });
             if (definition.safeRange)
                 dataTable.addRows([
-                    ["Ideal", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], definition.safeRange[0] + " - " + definition.safeRange[1] + " " + definition.unit, NORMAL],
+                    ["EPA Standard", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], definition.safeRange[0] + " - " + definition.safeRange[1] + " " + definition.unit, NORMAL],
                 ]);
-            var isDangerous = definition.safeRange ? stat > definition.safeRange[1] : false;
+            var isDangerous = definition.safeRange ? (stat < definition.safeRange[0] || stat > definition.safeRange[1]) : false;
             var color = isDangerous ? DANGER : SAFE;
             dataTable.addRows([
                 ["Actual", 0, 0, stat, stat, stat + " " + definition.unit, color]
@@ -231,8 +241,11 @@ var SuppliersCharting;
                         orientation: "vertical",
                         theme: "material",
                         height: 90,
+                        chartArea: {
+                            left: 90
+                        },
                         legend: {
-                            position: "none"
+                            position: "none",
                         },
                         hAxis: {
                             minValue: 0,
@@ -260,6 +273,12 @@ var SupplierPage = /** @class */ (function () {
         if (!this.supplier)
             return;
         this.main.appendChild(SuppliersDOM.makeHeading(this.supplier));
+        var allSystems = this.supplier.counties.reduce(function (a, c) { return a.concat(c.systems); }, []);
+        var element = SuppliersDOM.element;
+        this.main.appendChild(element("div", allSystems.map(function (_a) {
+            var name = _a.name;
+            return element("a", name, { href: "#" + name.toLowerCase().split(" ").join("-") });
+        }), { class: "system-link-container" }));
         this.main.appendChild(SuppliersDOM.makeCounties(this.supplier.counties));
         var charts = this.main.querySelectorAll("[name=chart]");
         var chartPartials = Array.prototype.map.call(charts, function (chart) { return SuppliersCharting.setupChart(chart); });
@@ -311,7 +330,7 @@ var SupplierPage = /** @class */ (function () {
                     placement: (index % 2 === 0) ? "left" : "right"
                 });
                 tippy(baseSelector + "[dangerous]", {
-                    content: "This plant's " + definition.name + " level exceeds EPA standards!",
+                    content: "This plant's " + definition.name + " level is outside of EPA standards!",
                     theme: "dangerous",
                     placement: "bottom"
                 });

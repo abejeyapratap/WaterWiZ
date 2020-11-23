@@ -3,6 +3,7 @@ declare const $: JQueryStatic;
 interface WaterSystem {
     name: string;
     waterStatus: string;
+    waterSource: string;
     description: string;
     reportLink?: string;
     stats: number[];
@@ -106,11 +107,20 @@ namespace SuppliersDOM {
         });
     }
 
-    export function makeSystem({ name, reportLink, waterStatus, description, stats }: WaterSystem): HTMLElement {
+    export function makeSystem({ name, reportLink, waterStatus, waterSource, description, stats }: WaterSystem): HTMLElement {
         return element("div", [
             element("div", [
-                element("h3", name, { class: "system-image" }),
-                element("p", { html: description, tag: "div" }, { class: "system-description" }),
+                element("h3", name, { class: "system-name", id: name.toLowerCase().split(" ").join("-") }),
+                element("p", [
+                    element("strong", "Areas Served: "),
+                    description
+                ], { class: "system-description" }),
+                ...(waterSource ? [
+                    element("p", [
+                        element("strong", "Water Source: "),
+                        waterSource
+                    ], { class: "water-source" })
+                ] : []),
                 element("p", [
                     element("strong", "Water Status: "),
                     waterStatus
@@ -130,6 +140,7 @@ namespace SuppliersDOM {
                 })
             ], { class: "chart-container" }),
             ...reportLink ? [element("div", [
+                element("p", "EPA: Environmental Protection Agency"),
                 element("a", "Click here to see the detailed water quality report", { href: reportLink })
             ], { class: "source-container" })] : []
         ], {
@@ -233,10 +244,10 @@ namespace SuppliersCharting {
             dataTable.addColumn({ role: "style" })
 
             if (definition.safeRange) dataTable.addRows([
-                ["Ideal", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], `${definition.safeRange[0]} - ${definition.safeRange[1]} ${definition.unit}`, NORMAL],
+                ["EPA Standard", definition.safeRange[0], definition.safeRange[0], definition.safeRange[1], definition.safeRange[1], `${definition.safeRange[0]} - ${definition.safeRange[1]} ${definition.unit}`, NORMAL],
             ]);
 
-            const isDangerous = definition.safeRange ? stat > definition.safeRange[1] : false;
+            const isDangerous = definition.safeRange ? (stat < definition.safeRange[0] || stat > definition.safeRange[1]) : false;
 
             const color = isDangerous ? DANGER : SAFE;
             
@@ -268,8 +279,11 @@ namespace SuppliersCharting {
                 orientation: "vertical",
                 theme: "material",
                 height: 90,
+                chartArea: {
+                    left: 90
+                },
                 legend: {
-                    position: "none"
+                    position: "none",
                 },
                 hAxis: {
                     minValue: 0,
@@ -299,6 +313,13 @@ class SupplierPage {
         if (!this.supplier) return;
         
         this.main.appendChild(SuppliersDOM.makeHeading(this.supplier));
+
+        const allSystems = this.supplier.counties.reduce((a, c) => a.concat(c.systems), [] as WaterSystem[]);
+
+        const element = SuppliersDOM.element;
+
+        this.main.appendChild(element("div", allSystems.map(({ name }) => element("a", name, { href: `#${name.toLowerCase().split(" ").join("-")}` })), { class: "system-link-container" }));
+
         this.main.appendChild(SuppliersDOM.makeCounties(this.supplier.counties));
 
         const charts = this.main.querySelectorAll("[name=chart]");
@@ -357,7 +378,7 @@ class SupplierPage {
                 })
 
                 tippy(`${baseSelector}[dangerous]`, {
-                    content: `This plant's ${definition.name} level exceeds EPA standards!`,
+                    content: `This plant's ${definition.name} level is outside of EPA standards!`,
                     theme: "dangerous",
                     placement: "bottom"
                 })

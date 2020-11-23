@@ -1,6 +1,6 @@
-header{
+header {
     width: 100vw;
-    height: 500px;
+    height: 335px;
     /**
     background: url("/img/suppback2.jpg");
     background-size: cover;
@@ -20,80 +20,87 @@ body {
     background-color: #a1b1c0;
 }
 
-header h1{
+#cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100px;
+    color: white;
+    font-size: 18px;
+}
+
+header h1 {
     font-size: 4em;
     font-weight: 400;
     text-align: center;
-    padding-bottom: 15px;
+    padding-bottom: 25px;
 }
 
-header > #descrip{
-    font-size: 1.25em;
+header>#descrip {
+    font-size: 1.45em;
     text-align: center;
+    margin: 40px;
+    margin-top: 0;
 }
 
-#box-icons{
+#box-icons {
     margin: 20px;
     display: flex;
     flex-flow: row wrap;
+    /* height: calc(100vh - 495px); */
     /*flex-direction: row;*/
-
     /*background-color: aqua;*/
     justify-content: center;
-    
     position: relative;
-
     /* column-gap: 40px; */
 }
 
-#box-icons > .box{
+#box-icons>.box {
     margin: 10px;
     flex: 1;
     background-color: white;
     min-width: 250px;
-
     text-align: center;
     text-decoration: none;
     overflow: hidden;
-
     box-sizing: border-box;
     border-radius: 10px;
     overflow: hidden;
     color: black;
     max-width: 300px;
     height: 300px;
-
     border: 1px solid #2e72a0;
     position: relative;
 }
 
-.box > .supplier-container {
+.box>.supplier-container {
     display: flex;
     flex-flow: column;
     height: 100%;
-} /*do we need this? */
+}
 
-.box > div > img {
+
+/*do we need this? */
+
+.box>div>img {
     border-bottom: 1px solid #E5E9F0;
 }
 
 .supplier-info {
     display: flex;
     flex-flow: column;
-
     row-gap: 10px;
     padding-right: 10px;
-
-    padding-top: 10px;  /*added only to display blue bottom*/
+    padding-top: 10px;
+    /*added only to display blue bottom*/
     padding-bottom: 10px;
-    
     /** #2e72a0 **/
     /** #036eb7 **/
     /** #115a8c **/
     background-color: #096118;
     color: white;
     flex: 1;
-
     /*hover effects*/
     position: absolute;
     bottom: 0;
@@ -105,9 +112,10 @@ header > #descrip{
     /*justify-content: center;*/
 }
 
-.box:hover .supplier-info{
+.box:hover .supplier-info {
     height: 100%;
 }
+
 
 /* .overlay-text{
     position: absolute;
@@ -119,21 +127,22 @@ header > #descrip{
     text-align: center;
 } */
 
-.supplier-info > h3.supplier-name{
+.supplier-info>h3.supplier-name {
     font-size: 1.5em;
     margin: 50px 0 5px 0;
+    padding: 5px;
 }
 
-.supplier-info > .overlay-text > p {
+.supplier-info>.overlay-text>p {
     margin: 15px 10px;
 }
 
-.supplier-info > .overlay-text > ul {
+.supplier-info>.overlay-text>ul {
     margin: 5px 0 10px 0;
     list-style-type: none;
 }
 
-.box img{
+.box img {
     width: 100%;
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
@@ -143,17 +152,25 @@ header > #descrip{
     /* #box-icons{
         display: flex;
         /* flex-flow: column; */
-        /* align-items: center; 
+    /* align-items: center; 
     }*/
-
-    #box-icons .box{
+    #box-icons .box {
         margin-left: 5px;
         max-width: 90%;
         text-align: center;
     }
-
-    .box img{
+    .box img {
         /* max-width: 50%; */
         /* max-height: 50%; */
     }
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+#box-icons {
+    flex: 1;
 }

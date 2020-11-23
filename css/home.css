@@ -41,6 +41,10 @@
  * Main content
  */
 
+ body {
+    background-color: #a1b1c0;
+}
+
 #home-content {
     display: flex;
     flex-flow: column;
@@ -70,14 +74,52 @@
 }
 
 main {
+    --spacing: 45px;
     display: flex;
     flex-flow: row;
-    column-gap: 10px;
-    height: 200px;
+    column-gap: var(--spacing);
+    height: 500px;
 }
 
 main > .side-content {
-    flex: 0.75;
+    position: relative;
+    margin-right: var(--spacing);
+    background-position: center;
+    background-size: cover;
+}
+
+main > .side-content::after {
+    display: block;
+    position: absolute;
+    top: 5%;
+    right: calc(var(--spacing) * -1);
+    height: 90%;
+    width: 1px;
+    content: '';
+
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+main > .home-paragraph {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #115A8C;              /*color of text box*/
+    color: white;
+
+    display: flex;
+    
+    text-align: center;
+    font-size: 24px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+main > .side-content {
+    flex: 1;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
 main > .home-paragraph {
@@ -114,15 +156,6 @@ main > .home-paragraph {
 
 .carousel > .slick-list > .slick-track, .carousel > .slick-list > .slick-track > * {
     height: 100%;
-}
-
-.carousel > .slick-list > .slick-track > :nth-child(2n) {
-    background-color: red;
-    /*background: url(/img/carousel1.png) no-repeat center;*/
-}
-
-.carousel > .slick-list > .slick-track > :not(:nth-child(2n)) {
-    background-color: blue;
 }
 
 .carousel > .slick-arrow {
@@ -175,8 +208,49 @@ main > .home-paragraph {
     margin-right: -2px;
 }
 
+.slick-track > .carousel-img {
+    background-image: var(--background);
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-img {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.carousel-img > .carousel-text {
+    font-size: 42px;
+    color: white;
+    font-weight: 500;
+}
+
+.carousel-text {
+    --inset: 60px;
+    max-width: calc(60vw - var(--inset));
+}
+
+.text-left .carousel-text {
+    margin-right: auto;
+    margin-left: var(--inset);
+}
+
+.text-left-inset .carousel-text {
+    margin-left: calc(var(--inset) * 2);
+}
+
+.text-right .carousel-text {
+    margin-left: auto;
+    margin-right: var(--inset);
+}
+
 @media screen and (max-width: 750px) {
     #home-content {
         max-width: calc(100vw - 100px);
+    }
+
+    .carousel-text {
+        max-width: 80vw;
+        font-size: 32px !important;
     }
 }
