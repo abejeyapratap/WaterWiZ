@@ -175,7 +175,7 @@
         },
         {
             "name": "Sodium",
-            "description": "Measures the amount of disinfectant by-products in your water. At levels above 80 ppb, Trihalomethanes can be carcinogenic and also affect pregnant women.",
+            "description": "In amounts less than 30 ppm, Sodium is harmless. A greater amount of Sodium can affect the taste of your water. It can also be harmful to people with high blood pressure and dialysis patients.",
             "safeRange": [
                 0,
                 30
