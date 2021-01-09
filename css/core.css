@@ -19,6 +19,9 @@ p {
     padding: 0;
 }
 
+body {
+    margin-top: 60px;
+}
 
 /*
  * Navbar
@@ -35,10 +38,12 @@ nav>.nav-group {
     flex-flow: row;
 }
 
+/*first-child selector: targets the left part of the nav bar (aka the first child of the parent, nav)*/
 nav>.nav-group:first-child {
     padding-left: 40px;
 }
 
+/*targets the right part of the nav bar*/
 nav>.nav-group:last-child {
     padding-right: 40px;
 }
@@ -57,7 +62,7 @@ nav>ul.nav-group>li {
 
 /** Expand nav-group-grow **/
 
-nav>.nav-group.nav-group-grow {
+nav>.nav-group.nav-group-grow { /*references the 2nd class in the left part of nav bar*/
     flex: 1;
 }
 
@@ -76,7 +81,7 @@ nav .nav-btn:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-nav .nav-btn a,
+/*nav .nav-btn a,*/
 nav a.nav-btn {
     color: white;
     text-decoration: none;
@@ -88,41 +93,27 @@ nav a.nav-btn {
  */
 
 nav#main-nav {
+    background-color: #262f31;
+    height: 59px;
     border-bottom: 1px solid black;
-    position: fixed;
     top: 0;
     width: 100vw;
-    z-index: 1000;
-}
-
-body {
-    margin-top: 60px;
+    position: fixed; /*prevent nav bar movement when scrolling*/
+    z-index: 1000; /*brings nav bar forward*/
 }
 
 nav>.nav-group>#nav-logo>a {
     display: inline-block;
 }
 
-nav>.nav-group>li>h1.nav-brand {
-    margin-left: 10px;
-    color: white;
-}
-
-nav#main-nav {
-    background-color: #262f31;
-    height: 59px;
-}
-
+/* TEMPORARY HIGHLIGHT*/
 .highlight {
-    /* TEMPORARY HIGHLIGHT*/
     color: #0e84ce;
     font-weight: bold;
 }
 
 
-/*
- * Footer
- */
+/*Footer*/
 
 body>footer#main-footer {
     display: flex;
@@ -134,29 +125,61 @@ body>footer#main-footer {
     font-weight: 600;
 }
 
-@media (max-width: 650px) {
-    .nav-brand {
-        display: none !important;
-    }
+/* Menu icon for mobile */
+.checkbtn{
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    line-height: 80px;
+    margin-right: 20px;
 }
 
-@media (max-width: 550px) {
-    #nav-logo {
-        display: none !important;
-        visibility: hidden !important;
+.checkbtn, #check{
+    display: none;
+}
+
+/*Media Queries*/
+
+
+@media (max-width: 700px) {
+    .checkbtn{
+        display: inline-block;
     }
-    nav {
+
+    nav>.nav-group.hidden-menu{
+        position: fixed;
+        background: #303030;
+        width: 100%;
+        height: 50vh;
+        top: 60px;
+        left: -150%;
         justify-content: center;
+        flex-flow: column;
+        
+        transition: all 0.8s;
+    } 
+
+    nav a.nav-btn {
+        font-size: 1.4em;
     }
+
     .nav-group:first-child {
-        padding-left: 0 !important;
-        flex: 0 !important;
+        padding-left: 10px !important;
     }
-    .nav-group:last-child {
-        padding-right: 0 !important;
+
+    nav .nav-btn:hover {
+        background: none;
+        color: #0e84ce;
+    }
+
+    /*both ul's are siblings of #check; 
+      but this is looking for ul sibling of #check that comes after #check*/
+    #check:checked ~ ul.nav-group.hidden-menu{ 
+        left: 0; /*when "checked", the nav links will transition into place*/
     }
 }
 
+/*Supplier Pages charts*/
 [data-theme=dangerous] {
     background-color: #C90C06;
 }
