@@ -116,7 +116,7 @@ main>.side-content {
 /*Phones*/
 @media (max-width: 750px) {
     main {
-        min-width: 85vw;
+        min-width: 90vw;
     }
 
     main>.home-paragraph {
