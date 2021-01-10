@@ -110,6 +110,7 @@ main>.side-content {
 
     main>.home-paragraph {
         font-size: calc(1.7vw + 8px);
+        padding: 20px 15px;
     }
 }
 
@@ -121,6 +122,8 @@ main>.side-content {
 
     main>.home-paragraph {
         font-size: calc(2.3vw + 6px);
+        min-height: 30vh;
+        padding: 20px 10px;
     }
 }
 
