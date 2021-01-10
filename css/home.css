@@ -1,46 +1,4 @@
 /*
- * Jumbotron
- */
-
-
-/*          OLD CODE
-.landing-container {
-    height: calc(50vh - 59px);
-    width: 100vw;
-
-    background-image: url('/img/Ocean.jpg');
-
-    display: flex;
-    flex-flow: row;
-    
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    border-bottom: 1px solid black;
-}
-
-.landing-container > .landing-backdrop {
-    backdrop-filter: blur(10px);
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.landing-container > .landing-cta {
-    font-size: 4em;
-    font-weight: 400;
-    z-index: 1;
-}
-*/
-
-
-/*
  * Main content
  */
 
@@ -50,25 +8,19 @@ body {
 
 #home-content {
     display: flex;
-    flex-flow: column;
+    flex-flow: row; 
+    align-items: center;
     padding: 20px 40px;
     max-width: calc(100vw - 300px);
     min-height: 50vh;
     margin: 0 auto;
 }
 
-#home-content>header {
-    text-align: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
-
-#home-content>header>h1.home-title {
+/*#home-content>header>h1.home-title {
     --home-font-size: 2em;
     font-size: var(--home-font-size);
     font-weight: 500;
-}
+}*/
 
 main {
     --spacing: 45px;
@@ -85,7 +37,7 @@ main>.side-content {
     background-size: cover;
 }
 
-main>.side-content::after {
+main>.side-content::after { /*insert a Line after the div background pic*/
     display: block;
     position: absolute;
     top: 5%;
@@ -100,14 +52,14 @@ main>.home-paragraph {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 15px;
-    background-color: #115A8C;
-    /*color of text box*/
+    background-color: #115A8C; /*color of text box*/
     color: white;
-    display: flex;
     text-align: center;
-    font-size: 24px;
+    font-size: calc(1.5vw + 2px);
+    display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1;
 }
 
 main>.side-content {
@@ -116,13 +68,47 @@ main>.side-content {
     border-radius: 10px;
 }
 
-main>.home-paragraph {
-    flex: 1;
-}
 
-@media screen and (max-width: 800px) {
+/*Media Queries*/
+
+@media screen and (max-width: 1200px) {
+    #home-content{
+        max-width: calc(100vw - 400px);
+    }
+    
     main {
         flex-flow: column;
+        row-gap: 5px;
+    }
+
+    main>.home-paragraph {
+        font-size: calc(1.5vw + 5px);
+    }
+
+    main>.side-content{
+        margin-right: 0;
+    }
+
+    main>.side-content::after {
+        display: none;
+        /*border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        height: 1px;
+        width: 90%;
+        top: calc(50vh - 200px);
+        right: 0;
+        left: 8%;*/
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 760px) {
+    main {
+        min-height: 650px;
+    }
+}
+
+@media (max-width: 750px) {
+    main>.home-paragraph {
+        font-size: calc(2vw + 6px);
     }
 }
 
@@ -244,3 +230,52 @@ main>.home-paragraph {
 .paragraph-container a {
     color: white !important;
 }
+
+
+/*
+ * Jumbotron
+ */
+
+
+/*          OLD CODE
+.landing-container {
+    height: calc(50vh - 59px);
+    width: 100vw;
+
+    background-image: url('/img/Ocean.jpg');
+
+    display: flex;
+    flex-flow: row;
+    
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    border-bottom: 1px solid black;
+}
+
+.landing-container > .landing-backdrop {
+    backdrop-filter: blur(10px);
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.landing-container > .landing-cta {
+    font-size: 4em;
+    font-weight: 400;
+    z-index: 1;
+}
+
+#home-content>header {
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+*/
