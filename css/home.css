@@ -249,7 +249,7 @@ main>.side-content {
     }
 
     .carousel-img>.carousel-text {
-        font-size: calc(6vw + 2px) !important;
+        font-size: calc(5vw + 2px) !important;
         font-weight: 500 !important;
     }
 
@@ -270,7 +270,6 @@ main>.side-content {
     }
 
     .carousel-img>.carousel-text.mobile-right {
-        font-size: calc(5vw + 2px) !important;
         margin-right: 5vw;
     }
 
