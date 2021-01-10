@@ -115,7 +115,7 @@ main>.side-content {
 }
 
 /*Phones*/
-@media (max-width: 750px) {
+@media (max-width: 600px) {
     main {
         min-width: 90vw;
     }
