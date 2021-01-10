@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-flow: row; 
     align-items: center;
+    justify-content: center;
     padding: 20px 40px;
     max-width: calc(100vw - 300px);
     min-height: 50vh;
@@ -100,15 +101,26 @@ main>.side-content {
     }
 }
 
+/*Tablets*/
 @media (max-width: 1200px) and (min-width: 760px) {
     main {
         min-height: 650px;
+        min-width: 70vw;
+    }
+
+    main>.home-paragraph {
+        font-size: calc(1.7vw + 8px);
     }
 }
 
+/*Phones*/
 @media (max-width: 750px) {
+    main {
+        min-width: 85vw;
+    }
+
     main>.home-paragraph {
-        font-size: calc(2vw + 6px);
+        font-size: calc(2.3vw + 6px);
     }
 }
 
