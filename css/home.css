@@ -106,6 +106,7 @@ main>.side-content {
     main {
         min-height: 650px;
         min-width: 70vw;
+        row-gap: 7px;
     }
 
     main>.home-paragraph {
