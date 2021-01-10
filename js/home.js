@@ -1,6 +1,6 @@
 $(function() {
     $('.carousel').slick({
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 4500,
         pauseOnFocus: false,
         pauseOnHover: false,

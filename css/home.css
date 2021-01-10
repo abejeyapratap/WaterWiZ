@@ -82,8 +82,8 @@ main>.side-content {
     flex-flow: row;
     align-items: center;
     justify-content: center;
-    height: 50vw;
-    max-height: 500px;
+    height: 80vh;
+    max-height: 600px;
     min-height: 350px;
     position: relative;
 }
@@ -153,7 +153,7 @@ main>.side-content {
 }
 
 .carousel-img>.carousel-text {
-    font-size: calc(3.5vw + 2px);
+    font-size: calc(3.5vw);
     color: white;
     font-weight: 400;
 }
@@ -230,6 +230,29 @@ main>.side-content {
         font-size: calc(1.7vw + 8px);
         padding: 20px 15px;
     }
+
+    .slick-track>.carousel-img.text-left {
+        background-position: 80%;
+    }
+
+    .slick-track>.carousel-img.carousel-img.mobile-img-right {
+        background-position: 15%;
+    }
+
+    .slick-track>.carousel-img.text-right {
+        background-position: 8%;
+    }
+
+    .carousel-img>.carousel-text.mobile-right {
+        margin-right: 5vw;
+    }
+
+    .slick-track>.carousel-img.mobile-img-left {
+        background-position: 95%;
+    }
+    .carousel-img>.carousel-text.mobile-left {
+        margin-left: 10vw !important;
+    }
 }
 
 /*Phones*/
@@ -242,6 +265,10 @@ main>.side-content {
         font-size: calc(2.3vw + 6px);
         min-height: 30vh;
         padding: 20px 10px;
+    }
+
+    .carousel{
+        height: 50vw;
     }
 
     .text-left-inset .carousel-text {
