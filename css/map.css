@@ -10,7 +10,7 @@ body {
 body > header{
     text-align: center;
     width: 100vw;
-    height: 200px;
+    height: 40vh;
     /**
     background: url("/img/suppback2.jpg");
     background-size: cover;
@@ -24,17 +24,11 @@ body > header{
     justify-content: center;
     color: #ffffff;
     border-bottom: 2px solid black;
-    
-}
-
-header h1{
-    font-size: 4em;
-    font-weight: 400;
-    text-align: center;
 }
 
 header > #descrip{
-    font-size: 1.25em;
+    margin-left: 20vw;
+    font-size: calc(1.5vw + 2px);
     text-align: center;
     padding: 20px;
     overflow: hidden;
@@ -88,7 +82,7 @@ img#duplogo{
     width: 100%;
 }
 
-@media(max-width: 569px) {   
+@media(max-width: 550px) {   
     body > #map-container{
         flex-flow: column;
         align-items: center;
@@ -108,5 +102,22 @@ img#duplogo{
 
     #map > iframe {
         min-height: 500px;
+    }
+
+    header{
+        background-position: 10% !important;
+        position: relative;
+    }
+
+    #descrip{
+        position: absolute;
+        left: 30%;
+        font-size: calc(3.5vw + 2px) !important;
+        width: 50% !important;
+        margin-left: 10vw !important;
+    }
+
+    .map-text{
+        line-height: 1.5;
     }
 }   
