@@ -240,7 +240,7 @@ var SuppliersCharting;
             charts.push([gChart, [dataTable, {
                         orientation: "vertical",
                         theme: "material",
-                        height: 90,
+                        height: 110,
                         chartArea: {
                             left: 90
                         },

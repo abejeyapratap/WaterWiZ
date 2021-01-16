@@ -170,7 +170,6 @@ div[name=chart] svg {
         padding: 0;
         grid-auto-rows: minmax(0, 1fr);
     }
-    .system-container {}
 }
 
 .stat-container {
@@ -197,6 +196,6 @@ svg>g:last-child:not(:only-child)>g:only-child {
 
 /*Media Queries*/
 
-@media (max-width: 550px) {
+/*@media (max-width: 550px) {
     
-}
+}*/
