@@ -116,13 +116,6 @@ header>#descrip {
     text-shadow: 0 0 17px black;
 }
 
-.contact-cards {
-    display: flex;
-    flex-flow: row;
-    margin: 0 auto;
-    max-width: calc(100vw - 200px);
-}
-
 #box-icons {
     margin: 20px;
     display: flex;
@@ -200,20 +193,6 @@ th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
-}
-
-#supplier-box {
-    display: flex;
-    flex-flow: row;
-    justify-content: left;
-    align-items: left;
-    box-sizing: border-box;
-    border-radius: 15px;
-    border-bottom: 1.5px solid gray;
-    width: 70%;
-    height: 150px;
-    margin-top: 5px;
-    transition: 0.75s ease;
 }
 
 img#duplogo {

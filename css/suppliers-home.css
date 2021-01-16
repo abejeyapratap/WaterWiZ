@@ -1,7 +1,7 @@
 header {
     width: 100vw;
-    min-height: 325px;
-    max-height: 335px;
+    min-height: 45vh;
+    max-height: 50vh;
     /**
     background: url("/img/suppback2.jpg");
     background-size: cover;
@@ -19,9 +19,12 @@ header {
 
 body {
     background-color: #a1b1c0;
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
 }
 
-#cta {
+/* #cta {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,20 +32,20 @@ body {
     height: 100px;
     color: white;
     font-size: 18px;
-}
+} */
 
 header h1 {
-    font-size: 4em;
-    font-weight: 400;
+    font-size: calc(3.7vw + 4px);
+    font-weight: 500;
     text-align: center;
     padding-bottom: 25px;
 }
 
 header>#descrip {
-    font-size: 1.45em;
+    font-size: calc(1.5vw + 2px);
     text-align: center;
     margin: 40px;
-    margin-top: 0;
+    margin-top: 10px;
 }
 
 #box-icons {
@@ -81,9 +84,6 @@ header>#descrip {
     height: 100%;
 }
 
-
-/*do we need this? */
-
 .box>div>img {
     border-bottom: 1px solid #E5E9F0;
 }
@@ -96,12 +96,10 @@ header>#descrip {
     padding-top: 10px;
     /*added only to display green bottom*/
     padding-bottom: 10px;
-    /** #2e72a0 **/
-    /** #036eb7 **/
-    /** #115a8c **/
     background-color: #096118;
     color: white;
     flex: 1;
+    
     /*hover effects*/
     position: absolute;
     bottom: 0;
@@ -116,17 +114,6 @@ header>#descrip {
 .box:hover .supplier-info {
     height: 100%;
 }
-
-
-/* .overlay-text{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-} */
 
 .supplier-info>h3.supplier-name {
     font-size: 1.5em;
@@ -149,29 +136,82 @@ header>#descrip {
     border-bottom-right-radius: inherit;
 }
 
-@media(max-width: 569px) {
-    /* #box-icons{
-        display: flex;
-        /* flex-flow: column; */
-    /* align-items: center; 
-    }*/
-    #box-icons .box {
-        margin-left: 5px;
-        max-width: 90%;
-        text-align: center;
-    }
-    .box img {
-        /* max-width: 50%; */
-        /* max-height: 50%; */
-    }
-}
-
-body {
-    display: flex;
-    flex-flow: column;
-    min-height: 100vh;
-}
-
 #box-icons {
     flex: 1;
+}
+
+/*Media Queries*/
+
+/*Tablets*/
+@media (max-width: 1100px) and (min-width: 600px) {
+    header h1 {
+        font-size: calc(7vw + 2px) !important;
+    }
+
+    #descrip p{
+        line-height: 2rem;
+    }
+
+    header>#descrip {
+        font-size: calc(2.2vw + 6px) !important
+    }
+
+    #box-icons>.box {
+        height: 575px;
+        max-width: 90%;
+        text-align: center;
+        margin-left: 5px;
+    }
+
+    .supplier-info {
+        position: relative;
+        padding-top: 0;
+        transition: none;
+        justify-content: center;
+    }
+
+    .supplier-info>h3.supplier-name {
+        margin: 15px 0 2px 0;
+    }
+
+    .overlay-text p, ul{
+        line-height: 1.3rem;
+    }
+}
+
+/*Phones*/
+@media (max-width: 500px) {
+    header h1 {
+        font-size: calc(9vw + 3px) !important;
+    }
+
+    #descrip p{
+        line-height: 1.4rem;
+    }
+
+    header>#descrip {
+        font-size: calc(2.5vw + 6px) !important
+    }
+
+    #box-icons>.box {
+        height: 575px;
+        max-width: 90%;
+        text-align: center;
+        margin-left: 5px;
+    }
+
+    .supplier-info {
+        position: relative;
+        padding-top: 0;
+        transition: none;
+        justify-content: center;
+    }
+
+    .supplier-info>h3.supplier-name {
+        margin: 15px 0 2px 0;
+    }
+
+    .overlay-text p, ul{
+        line-height: 1.3rem;
+    }
 }
