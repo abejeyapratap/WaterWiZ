@@ -308,6 +308,17 @@ main>.side-content {
     }
 }
 
+/*iMacs*/
+@media screen and (min-width: 1400px){
+    .carousel-img>.carousel-text {
+        font-size: 40px !important;
+    }
+
+    main>.home-paragraph {
+        font-size: 1.5vw !important;
+    }
+}
+
 
 
 /*
