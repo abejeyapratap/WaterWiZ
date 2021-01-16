@@ -197,6 +197,13 @@ svg>g:last-child:not(:only-child)>g:only-child {
 
 /*Media Queries*/
 
-/*@media (max-width: 550px) {
-    
-}*/
+@media (max-width: 550px) {
+    .stat-container{
+        padding: 10px 0 10px 0 !important;
+        margin: 10px 0 10px 0 !important;
+    }
+
+    .stat-container>.stat-info {
+        padding-top: 40px !important;
+    }
+}
