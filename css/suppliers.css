@@ -174,11 +174,13 @@ div[name=chart] svg {
 }
 
 .stat-container {
+    box-sizing: border-box;
     display: flex;
     flex-flow: column;
     align-items: center;
     height: 100%;
     position: relative;
+    border: 1px solid blue;
 }
 
 .stat-container>.stat-info {
@@ -200,10 +202,12 @@ svg>g:last-child:not(:only-child)>g:only-child {
 @media (max-width: 550px) {
     .stat-container{
         padding: 10px 0 10px 0 !important;
-        margin: 10px 0 10px 0 !important;
+        margin-top: 40px !important;
+        margin-bottom: ;
     }
 
     .stat-container>.stat-info {
+        margin-top: 85px !important;
         padding-top: 40px !important;
     }
 }
