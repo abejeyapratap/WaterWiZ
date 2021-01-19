@@ -196,6 +196,13 @@ svg>g:last-child:not(:only-child)>g:only-child {
 
 /*Media Queries*/
 
-/*@media (max-width: 550px) {
-    
-}*/
+@media (max-width: 550px) {
+    .color-legend>.legend-item::after {
+        margin-right: 15px;
+    }
+
+    .source-container{
+        margin-top: 0;
+        padding: 0 7vw;
+    }
+}
