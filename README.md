@@ -1,17 +1,17 @@
 # WaterWiZ
 
-<img src="assets/main_logo.png" width="475" height="200" />
+<img src="assets/main_logo.png" width="600" height="250" />
 
 ## 2020 Philly Codefest "Freshman Challenge" Winner
 
 ### Demo
-<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/719/datas/gallery.jpg" width="400" height="250" />
-<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/720/datas/gallery.jpg" width="400" height="250" />
-<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/717/datas/gallery.jpg" width="400" height="250" />
-<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/741/datas/gallery.jpg" width="400" height="250" />
-<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/721/datas/gallery.jpg" width="400" height="250" />
-<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/722/datas/gallery.jpg" width="400" height="250" />
-<img src="assets/suppliers.gif" width="400" height="250" />
+<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/719/datas/gallery.jpg" width="600" height="375" />
+<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/720/datas/gallery.jpg" width="600" height="375" />
+<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/717/datas/gallery.jpg" width="600" height="375" />
+<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/741/datas/gallery.jpg" width="600" height="375" />
+<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/721/datas/gallery.jpg" width="600" height="375" />
+<img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/722/datas/gallery.jpg" width="600" height="375" />
+<img src="assets/suppliers.gif" width="600" height="375" />
  
 ## How we built it
 WaterWiZ was developed entirely from scratch using HTML, CSS, Javascript, and the Google charts and maps APIs.
