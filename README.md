@@ -1,8 +1,8 @@
 # WaterWiZ
 
 <img src="assets/main_logo.png" width="600" height="250" />
-
-## 2020 Philly Codefest "Freshman Challenge" Winner
+Winner: Best Outdoor Hack at IEEE DragonHacks 2021
+## Winner: Best Freshman Challenge Award at Philly Codefest 2020
 
 ### Demo
 <img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/295/719/datas/gallery.jpg" width="600" height="375" />
